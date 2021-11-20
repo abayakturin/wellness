@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="968037D7-4136-69D9-EC58-3B86B3492B93" containerWithKeyObject="82D7533B-4054-8F22-A8C4-89159AA2E8A1" localFKIndex="4BC41953-D525-3389-ECD5-2F1A957C0346" name="aa_emp_aa_dept_fk">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>0E4FC478-7DD6-931B-F2A1-D19E04026F92</importedID>
+<referredTableLongName>aa_dept</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>0A372FFA-4047-0C6F-D80B-98451F3257A2</referredTableID>
+<keyObject>67338CCF-9959-ACE1-7248-91E6CD76F71D</keyObject>
+<referredKeyID>67338CCF-9959-ACE1-7248-91E6CD76F71D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>deptno</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

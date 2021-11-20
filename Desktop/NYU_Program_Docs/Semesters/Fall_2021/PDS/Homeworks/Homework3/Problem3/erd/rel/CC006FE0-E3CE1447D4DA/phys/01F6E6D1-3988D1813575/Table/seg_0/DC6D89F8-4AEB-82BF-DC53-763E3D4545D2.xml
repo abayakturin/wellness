@@ -1,0 +1,36 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev20c class="oracle.dbtools.crest.model.design.storage.oracle.v20c.TableProxyOraclev20c" name="aa_salgrade" directorySegmentName="seg_0" id="DC6D89F8-4AEB-82BF-DC53-763E3D4545D2">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="grade" id="8B5812D5-F53F-78CC-942B-0CA1591FE1B3">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="hisal" id="9DD213AE-D874-033B-4C59-8C816B9098C0">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="losal" id="BCFD5271-6430-D53D-1EF6-3BA0DA7A1B17">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="aa_salgrade_pk" id="F6812E51-9B9B-0206-1E42-DE292FC6BB7C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev20c>

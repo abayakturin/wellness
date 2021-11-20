@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DC6D89F8-4AEB-82BF-DC53-763E3D4545D2" name="aa_salgrade">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>73C57514-DB83-7D40-CCC3-3DABAF46A398</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="grade" id="8B5812D5-F53F-78CC-942B-0CA1591FE1B3">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>A9031A5D-DBF3-8E30-6AED-3474CDE6B98E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>BE6BF402-3478-C0E2-AC7C-329A6F6A31E1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hisal" id="9DD213AE-D874-033B-4C59-8C816B9098C0">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>7359AE74-DDBB-D248-6F69-5E5320565C33</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8F3525D7-F52C-F20A-FCEB-E34743EB1E8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="losal" id="BCFD5271-6430-D53D-1EF6-3BA0DA7A1B17">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>6CA2F999-D30A-5CF2-AA22-F1C20346C86E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>8F3525D7-F52C-F20A-FCEB-E34743EB1E8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F6812E51-9B9B-0206-1E42-DE292FC6BB7C" name="aa_salgrade_pk">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>0EB8A08A-CA2F-EFF6-3845-1175009FC4E9</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B5812D5-F53F-78CC-942B-0CA1591FE1B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

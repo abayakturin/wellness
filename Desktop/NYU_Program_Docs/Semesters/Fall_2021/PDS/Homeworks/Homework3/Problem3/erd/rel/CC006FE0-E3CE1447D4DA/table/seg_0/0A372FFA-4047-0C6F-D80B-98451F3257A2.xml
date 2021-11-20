@@ -1,0 +1,64 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0A372FFA-4047-0C6F-D80B-98451F3257A2" name="aa_dept">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>8952EB57-9472-559B-9D31-A47A4F13C368</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="deptno" id="95CEE78E-F65E-B346-D29A-DB4DE4260FCB">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>97B7262A-F222-4019-73B7-E84BDF95224E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>59460AD5-E82A-B941-A3ED-CA3CE208D66C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="dname" id="F6328AE7-7550-F4C7-6065-3EB241C71EC4">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>1EA85CAB-83E6-D259-ED44-BDDCF619CC93</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E5365F75-8D9B-FD11-03A0-5AA071534A56</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="loc" id="AE206B46-FD07-EB43-AB99-4CAF37487C6E">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>B5226D0A-4A81-D604-CC07-862C12BB203B</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E5365F75-8D9B-FD11-03A0-5AA071534A56</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="67338CCF-9959-ACE1-7248-91E6CD76F71D" name="aa_dept_pk">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>78437C33-5139-9C51-FF62-B67833374926</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="95CEE78E-F65E-B346-D29A-DB4DE4260FCB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

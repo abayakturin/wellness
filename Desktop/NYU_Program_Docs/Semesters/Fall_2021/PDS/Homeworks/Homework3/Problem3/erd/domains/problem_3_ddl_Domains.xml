@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="problem_3_ddl_Domains">
+<domains>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="02E59649-E61E-C20D-EAC0-FBDDB3C54426">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_2_0_0" id="59460AD5-E82A-B941-A3ED-CA3CE208D66C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>2</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NClob_0_0_0" id="80814EC3-0EA7-CE1A-BD9F-45444462F6D9">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LogDes-7DD553FD-11E8-61FA-399D-2E531FB621D0@LOGDT10035</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_7_2_0" id="8F3525D7-F52C-F20A-FCEB-E34743EB1E8F">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_4_0_0" id="931D72A8-B675-4470-D6E5-5A3BC51D2E66">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_2" id="BE6BF402-3478-C0E2-AC7C-329A6F6A31E1">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>2</dataTypeSize>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_30" id="DD3A3DBB-5DB4-3B44-84D0-DF0F10D426A8">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>30</dataTypeSize>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20" id="E5365F75-8D9B-FD11-03A0-5AA071534A56">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>20</dataTypeSize>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_3_0_0" id="F58CFEA1-A79F-F93C-7F01-AEF60265F6E5">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>problem_3_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+</domains>
+</DomainFile>

@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="927346BD-AF8A-8F57-200C-691E23ECC19E" containerWithKeyObject="82D7533B-4054-8F22-A8C4-89159AA2E8A1" localFKIndex="8900D887-EA4C-511A-A9CB-B74D84EFB6AB" name="aa_emp_aa_emp_fk">
+<sourceDDLFile>problem_3_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-20 00:56:05 UTC</createdTime>
+<ownerDesignName>erd</ownerDesignName>
+<importedID>5D67E535-28AB-6842-CE96-B5746B099417</importedID>
+<referredTableLongName>aa_emp</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>82D7533B-4054-8F22-A8C4-89159AA2E8A1</referredTableID>
+<keyObject>702B6B55-0A2C-4783-7A47-0038F7C11B1E</keyObject>
+<referredKeyID>702B6B55-0A2C-4783-7A47-0038F7C11B1E</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>empno</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
