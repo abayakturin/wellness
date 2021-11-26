@@ -1,0 +1,84 @@
+use oltpdb;
+
+SELECT * INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/ap_emp.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+  LINES TERMINATED BY '\n'
+  FROM ap_emp;
+  
+  SELECT * INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/ap_emp_2.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_emp;
+  
+SELECT empno,ename,job,ifnull(mgr,''),hiredate,sal,ifnull(comm,''),deptno,park_id,tbl_last_dt INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/ap_emp_2.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_emp;
+ 
+
+  SELECT a.empno,a.ename,a.job,a.mgr,a.hiredate,a.sal,a.comm,a.deptno,b.park_id,b.floor,
+		 d.pname,d.pname,d.start_date,d.end_date,c.hours
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_emp.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_emp a LEFT OUTER JOIN ap_park b ON a.park_id=b.park_id  LEFT OUTER JOIN ap_proemp c ON a.empno=c.empno 
+        LEFT OUTER JOIN ap_project d on c.projid=d.projid
+  WHERE a.tbl_last_dt>date_sub(curdate(),interval 30 day) or b.tbl_last_dt>date_sub(curdate(),interval 30 day) or
+        c.tbl_last_dt>date_sub(curdate(),interval 30 day) or d.tbl_last_dt>date_sub(curdate(),interval 30 day);
+
+
+=======
+
+use oltpdb
+  SELECT a.empno,a.ename,a.job,a.mgr,a.hiredate,a.sal,a.comm,a.deptno,b.park_id,b.floor,
+		 d.projid,d.pname,d.start_date,d.end_date,c.hours
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_emp.csv'
+  FIELDS TERMINATED BY ',' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_emp a JOIN ap_park b ON a.park_id=b.park_id  JOIN ap_proemp c ON a.empno=c.empno 
+         JOIN ap_project d on c.projid=d.projid
+  WHERE a.tbl_last_dt>date_sub(curdate(),interval 30 day) or b.tbl_last_dt>date_sub(curdate(),interval 30 day) or
+        c.tbl_last_dt>date_sub(curdate(),interval 30 day) or d.tbl_last_dt>date_sub(curdate(),interval 30 day);
+
+=========
+SELECT a.deptno,a.dname,a.loc_id,current_date(), b.city,c.co_name
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_dept.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_dept a JOIN ap_loc b ON a.loc_id=b.loc_id JOIN ap_country c ON b.co_id=c.co_id
+  WHERE a.tbl_last_dt>date_sub(curdate(),interval 30 day) or b.tbl_last_dt>date_sub(curdate(),interval 30 day) or
+        c.tbl_last_dt>date_sub(curdate(),interval 30 day); 
+
+
+========EXTRACT DEPT table == Full
+SELECT a.deptno,a.dname,a.loc_id, b.city,c.co_name 
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_dept_stage.csv'
+  FIELDS TERMINATED BY ','  ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_dept a JOIN ap_loc b ON a.loc_id=b.loc_id JOIN ap_country c ON b.co_id=c.co_id
+  WHERE a.tbl_last_dt>date_sub(curdate(),interval 30 day) or b.tbl_last_dt>date_sub(curdate(),interval 30 day) or
+        c.tbl_last_dt>date_sub(curdate(),interval 30 day); 
+
+
+===== EXTRACT EMP Table == full 
+SELECT a.empno,a.ename,a.job,a.mgr,a.hiredate,a.sal,a.comm,a.deptno,b.park_id,b.floor,
+		 d.pname,d.pname,d.start_date,d.end_date,c.hours
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_emp_stage.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_emp a LEFT OUTER JOIN ap_park b ON a.park_id=b.park_id  LEFT OUTER JOIN ap_proemp c ON a.empno=c.empno 
+        LEFT OUTER JOIN ap_project d on c.projid=d.projid
+  WHERE a.tbl_last_dt>date_sub(curdate(),interval 30 day) or b.tbl_last_dt>date_sub(curdate(),interval 30 day) or
+        c.tbl_last_dt>date_sub(curdate(),interval 30 day) or d.tbl_last_dt>date_sub(curdate(),interval 30 day);
+
+
+===== EXTRACT EMP Table == daily incremental
+SELECT a.empno,a.ename,a.job,a.mgr,a.hiredate,a.sal,a.comm,a.deptno,b.park_id,b.floor,
+		 d.pname,d.pname,d.start_date,d.end_date,c.hours
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_emp_stage_incr.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_emp a LEFT OUTER JOIN ap_park b ON a.park_id=b.park_id  LEFT OUTER JOIN ap_proemp c ON a.empno=c.empno 
+        LEFT OUTER JOIN ap_project d on c.projid=d.projid
+  WHERE a.tbl_last_dt>date_sub(curdate(),interval 1 day) or b.tbl_last_dt>date_sub(curdate(),interval 1 day) or
+        c.tbl_last_dt>date_sub(curdate(),interval 1 day) or d.tbl_last_dt>date_sub(curdate(),interval 1 day);

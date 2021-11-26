@@ -1,0 +1,468 @@
+
+---  type:      MySQL
+
+
+
+CREATE TABLE ap_country (
+    co_id         SMALLINT NOT NULL,
+    co_name       VARCHAR(20) NOT NULL,
+    tbl_last_dt   DATETIME NOT NULL
+);
+
+ALTER TABLE ap_country ADD CONSTRAINT ap_country_pk PRIMARY KEY ( co_id );
+
+CREATE TABLE ap_dept (
+    deptno        TINYINT NOT NULL,
+    dname         VARCHAR(20) NOT NULL,
+    loc_id        SMALLINT NOT NULL,
+    tbl_last_dt   DATETIME NOT NULL
+);
+
+ALTER TABLE ap_dept ADD CONSTRAINT ap_dept_pk PRIMARY KEY ( deptno );
+
+CREATE TABLE ap_emp (
+    empno         SMALLINT NOT NULL,
+    ename         VARCHAR(30) NOT NULL,
+    job           VARCHAR(30) NOT NULL,
+    mgr           SMALLINT,
+    hiredate      DATETIME NOT NULL,
+    sal           DECIMAL(7,2) NOT NULL,
+    comm          DECIMAL(7,2),
+    deptno        TINYINT,
+    park_id       TINYINT NOT NULL,
+    tbl_last_dt   DATETIME NOT NULL
+);
+
+CREATE UNIQUE INDEX ap_emp__idx ON
+    ap_emp (
+        park_id
+    ASC );
+
+ALTER TABLE ap_emp ADD CONSTRAINT ap_emp_pk PRIMARY KEY ( empno );
+
+CREATE TABLE ap_loc (
+    loc_id        SMALLINT NOT NULL,
+    city          VARCHAR(20) NOT NULL,
+    co_id         SMALLINT,
+    tbl_last_dt   DATETIME NOT NULL
+);
+
+ALTER TABLE ap_loc ADD CONSTRAINT ap_loc_pk PRIMARY KEY ( loc_id );
+
+CREATE TABLE ap_park (
+    park_id       TINYINT NOT NULL,
+    floor         TINYINT NOT NULL,
+    tbl_last_dt   DATETIME NOT NULL
+);
+
+ALTER TABLE ap_park ADD CONSTRAINT ap_park_pk PRIMARY KEY ( park_id );
+
+CREATE TABLE ap_proemp (
+    hours         SMALLINT NOT NULL,
+    empno         SMALLINT,
+    projid        SMALLINT NOT NULL,
+    tbl_last_dt   DATETIME NOT NULL
+);
+
+CREATE TABLE ap_project (
+    projid        SMALLINT NOT NULL,
+    pname         VARCHAR(20),
+    start_date    DATETIME NOT NULL,
+    end_date      DATETIME,
+    tbl_last_dt   DATETIME NOT NULL
+);
+
+ALTER TABLE ap_project ADD CONSTRAINT ap_project_pk PRIMARY KEY ( projid );
+
+ALTER TABLE ap_dept
+    ADD CONSTRAINT ap_dept_ap_loc_fk FOREIGN KEY ( loc_id )
+        REFERENCES ap_loc ( loc_id );
+
+ALTER TABLE ap_emp
+    ADD CONSTRAINT ap_emp_ap_dept_fk FOREIGN KEY ( deptno )
+        REFERENCES ap_dept ( deptno );
+
+ALTER TABLE ap_emp
+    ADD CONSTRAINT ap_emp_ap_park_fk FOREIGN KEY ( park_id )
+        REFERENCES ap_park ( park_id );
+
+ALTER TABLE ap_loc
+    ADD CONSTRAINT ap_loc_ap_country_fk FOREIGN KEY ( co_id )
+        REFERENCES ap_country ( co_id );
+
+ALTER TABLE ap_proemp
+    ADD CONSTRAINT ap_proemp_ap_emp_fk FOREIGN KEY ( empno )
+        REFERENCES ap_emp ( empno );
+
+ALTER TABLE ap_proemp
+    ADD CONSTRAINT ap_proemp_ap_project_fk FOREIGN KEY ( projid )
+        REFERENCES ap_project ( projid );
+
+ALTER TABLE `oltpdb`.`ap_park` 
+CHANGE COLUMN `tbl_last_dt` `tbl_last_dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
+ALTER TABLE `oltpdb`.`ap_emp` 
+CHANGE COLUMN `tbl_last_dt` `tbl_last_dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
+ALTER TABLE `oltpdb`.`ap_dept` 
+CHANGE COLUMN `tbl_last_dt` `tbl_last_dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
+ALTER TABLE `oltpdb`.`ap_loc` 
+CHANGE COLUMN `tbl_last_dt` `tbl_last_dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
+ALTER TABLE `oltpdb`.`ap_country` 
+CHANGE COLUMN `tbl_last_dt` `tbl_last_dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
+ALTER TABLE `oltpdb`.`ap_project` 
+CHANGE COLUMN `tbl_last_dt` `tbl_last_dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
+ALTER TABLE `oltpdb`.`ap_proemp` 
+CHANGE COLUMN `tbl_last_dt` `tbl_last_dt` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ;
+
+use oltpdb;
+
+
+DELIMITER $$
+CREATE TRIGGER `TI_EMP_default_date` BEFORE INSERT ON `ap_emp` FOR EACH ROW
+if ( isnull(new.tbl_last_dt) ) then
+ set new.tbl_last_dt=current_timestamp();
+end if;
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TU_EMP_default_date` BEFORE UPDATE ON `ap_emp` FOR EACH ROW
+set NEW.tbl_last_dt=current_timestamp();
+$$
+delimiter ;
+
+
+DELIMITER $$
+CREATE TRIGGER `TI_PARK_default_date` BEFORE INSERT ON `ap_park` FOR EACH ROW
+if ( isnull(new.tbl_last_dt) ) then
+ set new.tbl_last_dt=current_timestamp();
+end if;
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TU_PARK_default_date` BEFORE UPDATE ON `ap_park` FOR EACH ROW
+set NEW.tbl_last_dt=current_timestamp();
+$$
+delimiter ;
+
+
+DELIMITER $$
+CREATE TRIGGER `TI_DEPT_default_date` BEFORE INSERT ON `ap_dept` FOR EACH ROW
+if ( isnull(new.tbl_last_dt) ) then
+ set new.tbl_last_dt=current_timestamp();
+end if;
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TU_DEPT_default_date` BEFORE UPDATE ON `ap_dept` FOR EACH ROW
+set NEW.tbl_last_dt=current_timestamp();
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TI_LOC_default_date` BEFORE INSERT ON `ap_loc` FOR EACH ROW
+if ( isnull(new.tbl_last_dt) ) then
+ set new.tbl_last_dt=current_timestamp();
+end if;
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TU_LOC_default_date` BEFORE UPDATE ON `ap_loc` FOR EACH ROW
+set NEW.tbl_last_dt=current_timestamp();
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TI_COUNTRY_default_date` BEFORE INSERT ON `ap_country` FOR EACH ROW
+if ( isnull(new.tbl_last_dt) ) then
+ set new.tbl_last_dt=current_timestamp();
+end if;
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TU_COUNTRY default_date` BEFORE UPDATE ON `ap_country` FOR EACH ROW
+set NEW.tbl_last_dt=current_timestamp();
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TI_PROJECT_default_date` BEFORE INSERT ON `ap_project` FOR EACH ROW
+if ( isnull(new.tbl_last_dt) ) then
+ set new.tbl_last_dt=current_timestamp();
+end if;
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TU_PROJECT default_date` BEFORE UPDATE ON `ap_project` FOR EACH ROW
+set NEW.tbl_last_dt=current_timestamp();
+$$
+delimiter ;
+
+  
+DELIMITER $$
+CREATE TRIGGER `TI_PROEMP_default_date` BEFORE INSERT ON `ap_proemp` FOR EACH ROW
+if ( isnull(new.tbl_last_dt) ) then
+ set new.tbl_last_dt=current_timestamp();
+end if;
+$$
+delimiter ;
+
+DELIMITER $$
+CREATE TRIGGER `TU_PROEMP default_date` BEFORE UPDATE ON `ap_proemp` FOR EACH ROW
+set NEW.tbl_last_dt=current_timestamp();
+$$
+delimiter ;
+
+use oltpdb;
+select database();
+show tables;
+describe ap_country;
+
+insert into ap_country (co_id,co_name) values (001,'USA');
+insert into ap_country (co_id,co_name) values (002,'INDIA');
+insert into ap_country (co_id,co_name) values (003,'CHINA');
+insert into ap_country (co_id,co_name) values (004,'CANADA');
+
+insert into ap_loc (loc_id,city,co_id) values (1001,'MUMBAI', 002);
+insert into ap_loc (loc_id,city,co_id) values (1002,'DELHI', 002);
+insert into ap_loc (loc_id,city,co_id) values (1003,'CHENNAI', 002);
+insert into ap_loc (loc_id,city,co_id) values (1004,'AHMEDABAD', 002);
+insert into ap_loc (loc_id,city,co_id) values (1005,'New York', 001);
+insert into ap_loc (loc_id,city,co_id) values (1006,'Boston', 001);
+insert into ap_loc (loc_id,city,co_id) values (1007,'Chicago', 001);
+insert into ap_loc (loc_id,city,co_id) values (1008,'Miami', 001);
+insert into ap_loc (loc_id,city,co_id) values (1009,'Beijing', 003);
+insert into ap_loc (loc_id,city,co_id) values (1010,'Shangahi', 003);
+insert into ap_loc (loc_id,city,co_id) values (1011,'Toronto', 004);
+
+insert into ap_dept (deptno, dname, loc_id) values (10,'IT Development',1003);
+insert into ap_dept (deptno, dname, loc_id) values (20,'IT BPO',1001);
+insert into ap_dept (deptno, dname, loc_id) values (30,'Business Development',1005);
+insert into ap_dept (deptno, dname, loc_id) values (40,'Accounting',1011);
+
+insert into ap_park (park_id, floor) values (5001,5);
+insert into ap_park (park_id, floor) values (5002,5);
+insert into ap_park (park_id, floor) values (2001,2);
+insert into ap_park (park_id, floor) values (2002,2);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7369, 'SMITH', 'CLERK', 7902, STR_TO_DATE('10/08/2001 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    2400, 20,2001);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO,PARK_ID) 
+ values 
+   (7499, 'ALLEN', 'SALESMAN', 7698, STR_TO_DATE('12/12/2001 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    4800, 600, 30,2001);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO,PARK_ID) 
+ values 
+   (7521, 'WARD', 'SALESMAN', 7698, STR_TO_DATE('12/14/2001 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    3750, 1000, 30,5001);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7566, 'JONES', 'MANAGER', 7839, STR_TO_DATE('01/22/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    8925, 20,5002);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO,PARK_ID) 
+ values 
+   (7654, 'MARTIN', 'SALESMAN', 7698, STR_TO_DATE('07/20/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    3750, 2800, 30,2001);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7698, 'BLAKE', 'MANAGER', 7839, STR_TO_DATE('02/20/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    8550, 30,2002);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7782, 'CLARK', 'MANAGER', 7839, STR_TO_DATE('03/31/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    7350, 10,5002);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7788, 'STUDENT', 'ANALYST', 7566, STR_TO_DATE('02/08/2008 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    9000, 20,2002);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7839, 'KING', 'PRESIDENT', STR_TO_DATE('09/08/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    15000, 10,2001);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO,PARK_ID) 
+ values 
+   (7844, 'TURNER', 'SALESMAN', 7698, STR_TO_DATE('06/30/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    4500, 0, 30,5002);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7876, 'ADAMS', 'CLERK', 7788, STR_TO_DATE('03/13/2008 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    3300, 20,5001);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7900, 'JAMES', 'CLERK', 7698, STR_TO_DATE('09/24/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    2850, 30,5002);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7902, 'FORD', 'ANALYST', 7566, STR_TO_DATE('09/24/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    9000, 20,2001);
+
+insert into AP_EMP 
+   (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO,PARK_ID) 
+ values 
+   (7934, 'MILLER', 'CLERK', 7782, STR_TO_DATE('11/14/2002 00:00:00', '%m/%d/%Y %H:%i:%s'),  
+    3900, 10,5001);
+
+
+
+insert into AP_PROJECT 
+   (PROJID, PNAME, START_DATE, END_DATE) 
+ values 
+   (101, ' Upgrade Database', STR_TO_DATE('04/05/2018 14:08:52', '%m/%d/%Y %H:%i:%s'), STR_TO_DATE('06/24/2018 14:08:52', '%m/%d/%Y %H:%i:%s'));
+
+
+insert into AP_PROJECT 
+   (PROJID, PNAME, START_DATE, END_DATE) 
+ values 
+   (102, ' Create Sales DWt', STR_TO_DATE('12/16/2017 14:10:57', '%m/%d/%Y %H:%i:%s'), STR_TO_DATE('03/26/2018 14:10:57', '%m/%d/%Y %H:%i:%s'));
+
+insert into AP_PROJECT 
+   (PROJID, PNAME, START_DATE, END_DATE) 
+ values 
+   (103, 'Design OLTP DB', STR_TO_DATE('03/16/2018 14:12:33', '%m/%d/%Y %H:%i:%s'), STR_TO_DATE('05/25/2018 14:12:33', '%m/%d/%Y %H:%i:%s'));
+
+insert into AP_PROJECT 
+   (PROJID, PNAME, START_DATE, END_DATE) 
+ values 
+   (104, 'Develop Web App', STR_TO_DATE('05/05/2018 14:14:18', '%m/%d/%Y %H:%i:%s'), STR_TO_DATE('07/24/2018 14:14:18', '%m/%d/%Y %H:%i:%s'));
+
+insert into AP_PROJECT 
+   (PROJID, PNAME, START_DATE, END_DATE) 
+ values 
+   (105, 'Install BI tool', STR_TO_DATE('06/09/2018 14:15:48', '%m/%d/%Y %H:%i:%s'), STR_TO_DATE('09/02/2018 14:15:48', '%m/%d/%Y %H:%i:%s'));
+
+insert into AP_PROEMP  
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7499, 101, 42);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7566, 101, 30);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7782, 101, 50);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7902, 101, 38);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7521, 102, 60);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7698, 102, 48);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7844, 102, 88);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7654, 102, 68);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7521, 103, 60);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7698, 103, 48);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7788, 103, 28);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7782, 103, 38);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7521, 104, 70);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7698, 104, 50);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7788, 104, 38);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7782, 104, 32);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7566, 105, 75);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7698, 105, 60);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7788, 105, 42);
+
+insert into AP_PROEMP 
+   (EMPNO, PROJID, HOURS) 
+ values 
+   (7902, 105, 36);

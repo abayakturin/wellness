@@ -1,0 +1,69 @@
+
+
+SQL LOADER COTROL FILE: Create follwing control files using text editor with extention .ctl and copy them to share folder STUDENT to make it visible to Virtual Box.
+=======================
+
+stg_dw_emp_full.ctl
+---------------------
+
+INFILE '/media/sf_STUDENT/dw_emp_stage.csv'
+BADFILE '/media/sf_STUDENT/dw_emp_full_stg.bad'
+DISCARDFILE '/media/sf_STUDENT/dw_emp_full_stg.dsc'
+INTO TABLE STG_DW_EMP
+TRUNCATE
+FIELDS TERMINATED BY ','
+NULLIF = "NULL"
+DATE FORMAT "yyyy-mm-dd HH24:MI:SS"
+   (empno,
+    ename,
+    job,
+    mgr,
+    hiredate DATE,
+    sal,
+    comm,
+    deptno,
+    park_id,
+    floor,
+    projid,
+    pname,
+    start_date DATE,
+    end_date DATE,
+    hours
+ )
+
+
+stg_dw_emp_incr.ctl
+=====================
+
+
+INFILE '/media/sf_STUDENT/dw_emp_stage_incr.csv'
+BADFILE '/media/sf_STUDENT/dw_emp_load_stg_incr.bad'
+DISCARDFILE '/media/sf_STUDENT/dw_emp_load_incr_stg.dsc'
+INTO TABLE STG_DW_EMP
+TRUNCATE
+FIELDS TERMINATED BY ','
+NULLIF = "NULL"
+DATE FORMAT "yyyy-mm-dd HH24:MI:SS"
+   (empno,
+    ename,
+    job,
+    mgr,
+    hiredate DATE,
+    sal,
+    comm,
+    deptno,
+    park_id,
+    floor,
+    projid,
+    pname,
+    start_date DATE,
+    end_date DATE,
+    hours
+ )
+
+
+ 
+
+
+
+

@@ -1,0 +1,10 @@
+name,office_phone,personal_phone,specialty,hire_date,annual_pay,contract_date,contract_phone,weekly_pay,min_weekly_hours,overtime_hourly_pay,disease_description,disease_type,hospital_id,department_id,disease_id,patient_id,doctor_id
+Gregory Nelson,(852) 324-5075,(448) 528-3451,hymenaeos.,,,2021-03-08,(964) 453-8553,2420,30,41,"Curabitur consequat, lectus sit amet luctus",felis,1,1,1,1,1
+Scott Morris,(306) 423-2286,(388) 658-6637,"nec,",,,2021-05-19,(693) 323-8487,1033,32,47,"elit, pharetra ut, pharetra sed, hendrerit a, arcu. Sed et",diam,2,2,2,2,2
+Adrian Salazar,(638) 434-7144,(863) 637-9129,odio.,,,2021-12-01,(797) 817-6198,1889,32,52,"facilisis, magna tellus faucibus",Donec,5,5,5,5,5
+Odysseus Lowe,(713) 838-1278,(853) 216-8823,eu,2021-03-08,92940,,,,,,"Etiam laoreet, libero et tristique pellentesque, tellus sem",placerat.,6,6,6,6,6
+Hayfa Mcleod,(486) 600-4162,(338) 620-5778,dapibus,2022-01-04,62498,,,,,,"a, scelerisque sed, sapien. Nunc",amet,9,9,9,9,9
+Samson Carroll,(698) 838-7129,(333) 335-2566,"mauris,",2021-12-01,79640,,,,,,"erat, eget tincidunt dui augue eu tellus. Phasellus elit","sed,",10,10,10,10,10
+Zachary Foley,(180) 954-6360,(218) 485-6768,Morbi,,,2022-08-05,(950) 547-2226,2830,38,47,ac tellus.,Nam,4,4,4,14,14
+Wanda Mcintosh,(843) 314-2801,(394) 578-2282,ante.,,,2020-11-28,(564) 786-4435,3798,28,35,"facilisis, magna tellus faucibus",Donec,5,5,5,15,15
+Gary Brady,(625) 342-8370,(130) 890-7260,nulla,2021-10-05,85271,,,,,,"Etiam laoreet, libero et tristique pellentesque, tellus sem",placerat.,6,6,6,16,16

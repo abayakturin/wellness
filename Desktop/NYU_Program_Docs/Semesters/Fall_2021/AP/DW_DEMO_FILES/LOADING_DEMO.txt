@@ -1,0 +1,144 @@
+
+========= FULL EXTRACT DEPT TABLE
+
+use oltpdb
+SELECT a.deptno,a.dname,a.loc_id,current_date(), b.city,c.co_name
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_dept.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_dept a JOIN ap_loc b ON a.loc_id=b.loc_id JOIN ap_country c ON b.co_id=c.co_id
+--  WHERE a.tbl_last_dt>date_sub(curdate(),interval 1 day) or b.tbl_last_dt>date_sub(curdate(),interval 1 day) or
+--      c.tbl_last_dt>date_sub(curdate(),interval 1 day); 
+
+=== INCREMENTAL EXTRACT DEPT TABLE
+
+SELECT a.deptno,a.dname,a.loc_id,current_date(), b.city,c.co_name
+  INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_dept.csv'
+  FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' ESCAPED BY ''
+  LINES TERMINATED BY '\n'
+  FROM ap_dept a JOIN ap_loc b ON a.loc_id=b.loc_id JOIN ap_country c ON b.co_id=c.co_id
+--  WHERE a.tbl_last_dt>date_sub(curdate(),interval 1 day) or b.tbl_last_dt>date_sub(curdate(),interval 1 day) or
+--      c.tbl_last_dt>date_sub(curdate(),interval 1 day); 
+ 
+
+
+=== EMP FULL EXTRACT INTO FILE
+SELECT a.empno,a.ename,a.job,a.mgr,a.hiredate,a.sal,a.comm,a.deptno,b.park_id,b.floor,
+		 d.projid,d.pname,d.start_date,d.end_date,c.hours
+    INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_emp_full_stg.csv'
+    FIELDS TERMINATED BY ','  ESCAPED BY ''
+    LINES TERMINATED BY '\n'
+  FROM ap_emp a LEFT OUTER JOIN ap_park b ON a.park_id=b.park_id  LEFT OUTER JOIN ap_proemp c ON a.empno=c.empno 
+        LEFT OUTER JOIN ap_project d on c.projid=d.projid
+   -- WHERE a.tbl_last_dt>date_sub(curdate(),interval 1 day) or b.tbl_last_dt>date_sub(curdate(),interval 1 day) or
+   --      c.tbl_last_dt>date_sub(curdate(),interval 1 day) or d.tbl_last_dt>date_sub(curdate(),interval 1 day);
+
+SQL LOADER CONTROL FILE (FULL) :stg_dw_emp_full.ctl
+
+LOAD DATA
+INFILE '/media/sf_STUDENT/dw_emp_stage_full.csv'
+BADFILE '/media/sf_STUDENT/dw_emp_full_stg.bad'
+DISCARDFILE '/media/sf_STUDENT/dw_emp_full_stg.dsc'
+INTO TABLE STG_DW_EMP
+TRUNCATE
+FIELDS TERMINATED BY ','
+NULLIF = "NULL"
+DATE FORMAT "yyyy-mm-dd HH24:MI:SS"
+   (empno,
+    ename,
+    job,
+    mgr,
+    hiredate DATE,
+    sal,
+    comm,
+    deptno,
+    park_id,
+    floor,
+    projid,
+    pname,
+    start_date DATE,
+    end_date DATE,
+    hours
+ )
+
+Running SQLLDR in command line -- FOR FULL LOADING
+==================================================
+
+sqlldr userid=DWS/dws@orcl control=stg_dw_emp_full.ctl
+
+
+
+DELETE FROM DW_DEPT;
+DELETE FROM DW_EMP;
+COMMIT;
+
+INSERT INTO DW_DEPT SELECT * FROM STG_DW_DEPT;
+COMMIT;
+
+
+sqlpls /nolog
+connect DWS/dws@orcle
+
+EXECUTE load_dw_emp;
+
+SELECT COUNT(*) FROM DW_EMP;
+
+TRUNCATE TABLE DW_EMP;
+
+execute load_merge_dw_emp;
+
+
+INCREMENTAL EXTRACT INTO FILE
+=============================
+
+
+USE oltpdb
+
+update ap_emp
+set sal=sal+500
+where deptno=20
+commit;
+
+SELECT a.empno,a.ename,a.job,a.mgr,a.hiredate,a.sal,a.comm,a.deptno,b.park_id,b.floor,
+		 d.projid,d.pname,d.start_date,d.end_date,c.hours
+   INTO OUTFILE '/Applications/XAMPP/xamppfiles/temp/mysql/dw_emp_stage_incr.csv'
+   FIELDS TERMINATED BY ',' ESCAPED BY ''
+   LINES TERMINATED BY '\n'
+  FROM ap_emp a LEFT OUTER JOIN ap_park b ON a.park_id=b.park_id  LEFT OUTER JOIN ap_proemp c ON a.empno=c.empno 
+        LEFT OUTER JOIN ap_project d on c.projid=d.projid
+  WHERE a.tbl_last_dt>date_sub(curdate(),interval 1 day) or b.tbl_last_dt>date_sub(curdate(),interval 1 day) or
+        c.tbl_last_dt>date_sub(curdate(),interval 1 day) or d.tbl_last_dt>date_sub(curdate(),interval 1 day);
+
+
+=== Incremental Load Control File: stg_dw_emp_incr.ctl
+
+LOAD DATA
+INFILE '/media/sf_STUDENT/dw_emp_stage_incr.csv'
+BADFILE '/media/sf_STUDENT/dw_emp_load_stg_inc_new.bad'
+DISCARDFILE '/media/sf_STUDENT/dw_emp_load_incr_stg_new.dsc'
+INTO TABLE STG_DW_EMP
+TRUNCATE
+FIELDS TERMINATED BY ','
+NULLIF = "NULL"
+DATE FORMAT "yyyy-mm-dd HH24:MI:SS"
+   (empno,
+    ename,
+    job,
+    mgr,
+    hiredate DATE,
+    sal,
+    comm,
+    deptno,
+    park_id,
+    floor,
+    projid,
+    pname,
+    start_date DATE,
+    end_date DATE,
+    hours
+ )
+
+sqlldr userid=DWS/dws@orcl control=stg_dw_emp_incr.ctl
+
+
+execute load_merge_dw_emp;
