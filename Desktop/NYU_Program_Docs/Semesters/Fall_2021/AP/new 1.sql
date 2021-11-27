@@ -1,2 +1,0 @@
-insert into hospital (id, name, address, specialty, emergency_phone, general_phone, registration_phone, admin_phone, department_id) values (1, 'St. Andrew Hospital', '497 Sachtjen Street', 'psychiatry', '{(384) 1100919}', '{(157) 6144145}', '{(621) 8749764}', '{(845) 5511486}', 1);
-insert into hospital (id, name, address, specialty, emergency_phone, general_phone, registration_phone, admin_phone, department_id) values (2, 'Ellis Hospital', '77 Eagle Crest Plaza', 'research', '{(806) 6545231}', '{(479) 9154280}', '{(250) 7550171}', '{(234) 4228434}', 2);
