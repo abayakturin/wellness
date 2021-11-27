@@ -1,0 +1,31 @@
+treatment_id,date,type,result_status,description,laboratory_treatment,lab_test_type,lab_test_date,lab_test_result,drug,drug_dose,surgery,surgery_description,surgery_date,surgery_result
+16,2021-01-15,laboratory_treatment,"laoreet,",Aenean sed pede,Vehicula Risus Associates,eu arcu.,2022-08-12,ac,,,,,,
+27,2020-12-06,surgery_treatment,Vivamus,"mollis. Phasellus libero mauris, aliquam",,,,,,,lacinia,"iaculis nec, eleifend non, dapibus",2021-07-13,"nostra,"
+24,2021-12-19,surgery_treatment,nibh.,Curabitur dictum.,,,,,,,ipsum.,porttitor interdum. Sed auctor odio,2022-03-23,"montes,"
+4,2021-12-19,drug,nibh.,Curabitur dictum.,,,,,semper rutrum.,magna.,,,,
+8,2021-09-26,drug,Phasellus,"vulputate, posuere vulputate, lacus. Cras interdum. Nunc",,,,,Proin vel,Nam,,,,
+29,2021-01-22,surgery_treatment,adipiscing,metus. Vivamus euismod urna. Nullam,,,,,,,Cras,"Donec nibh enim, gravida sit amet, dapibus id, blandit at,",2022-03-27,diam
+25,2022-08-08,surgery_treatment,eu,non nisi. Aenean,,,,,,,Quisque,sit amet orci. Ut,2022-02-20,Proin
+1,2021-09-18,drug,at,et ipsum cursus vestibulum. Mauris magna. Duis dignissim tempor arcu.,,,,,a purus.,et,,,,
+28,2021-09-26,surgery_treatment,Phasellus,"vulputate, posuere vulputate, lacus. Cras interdum. Nunc",,,,,,,nibh.,Pellentesque ultricies dignissim lacus. Aliquam rutrum lorem ac risus. Morbi,2022-04-16,luctus
+9,2021-01-22,drug,adipiscing,metus. Vivamus euismod urna. Nullam,,,,,"volutpat ornare,",purus,,,,
+10,2022-06-28,drug,"dui,",augue,,,,,sem semper,ut,,,,
+20,2020-12-09,laboratory_treatment,arcu.,a odio semper cursus.,Imperdiet Dictum Institute,ac mi,2021-08-23,pellentesque.,,,,,,
+14,2021-04-24,laboratory_treatment,Nullam,lectus justo eu arcu. Morbi sit amet,Ante Blandit LLP,"Donec elementum,",2022-06-07,Nam,,,,,,
+6,2022-03-13,drug,eget,mus. Aenean eget,,,,,Suspendisse ac,risus.,,,,
+19,2021-12-17,laboratory_treatment,"elit,","ac, eleifend",Morbi Tristique Limited,"a, malesuada",2021-06-06,mollis,,,,,,
+21,2021-09-18,surgery_treatment,at,et ipsum cursus vestibulum. Mauris magna. Duis dignissim tempor arcu.,,,,,,,et,molestie pharetra,2021-08-26,"montes,"
+11,2022-06-09,laboratory_treatment,sodales,"a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc",Ultrices Mauris LLP,blandit congue.,2022-09-30,et,,,,,,
+3,2021-12-08,drug,libero.,"magna sed dui. Fusce aliquam, enim nec tempus scelerisque,",,,,,Nulla facilisis.,"sed,",,,,
+2,2021-08-20,drug,risus.,Donec egestas. Duis ac arcu. Nunc mauris. Morbi non sapien,,,,,"risus, at",Mauris,,,,
+13,2021-09-01,laboratory_treatment,quis,"eros nec tellus. Nunc lectus pede, ultrices a, auctor non,",Et Lacinia Vitae Company,tempor arcu.,2022-07-17,habitant,,,,,,
+23,2021-12-08,surgery_treatment,libero.,"magna sed dui. Fusce aliquam, enim nec tempus scelerisque,",,,,,,,lacus.,sit amet,2022-04-29,rutrum.
+15,2020-11-18,laboratory_treatment,Sed,eu,Tempus Scelerisque Lorem Associates,Donec egestas.,2022-09-01,scelerisque,,,,,,
+12,2022-02-14,laboratory_treatment,dictum,"a, aliquet vel, vulputate eu, odio. Phasellus at",Aliquam Rutrum Lorem Incorporated,odio. Etiam,2022-04-07,vel,,,,,,
+18,2021-06-06,laboratory_treatment,libero,"Nullam enim. Sed nulla ante,",Vitae Diam Inc.,mauris. Morbi,2021-04-22,elit,,,,,,
+22,2021-08-20,surgery_treatment,risus.,Donec egestas. Duis ac arcu. Nunc mauris. Morbi non sapien,,,,,,,Pellentesque,"quam, elementum at,",2022-04-22,mauris.
+30,2022-06-28,surgery_treatment,"dui,",augue,,,,,,,sapien.,"est mauris, rhoncus id, mollis nec, cursus a, enim.",2022-10-09,vel
+7,2020-12-06,drug,Vivamus,"mollis. Phasellus libero mauris, aliquam",,,,,"pharetra ut,",tempus,,,,
+26,2022-03-13,surgery_treatment,eget,mus. Aenean eget,,,,,,,ligula.,dui. Cum sociis natoque penatibus et,2021-11-16,Fusce
+5,2022-08-08,drug,eu,non nisi. Aenean,,,,,dui lectus,dapibus,,,,
+17,2021-08-23,laboratory_treatment,tellus.,malesuada fames ac turpis egestas. Fusce,Eu Erat Semper Industries,"aliquam, enim",2020-11-10,quis,,,,,,

@@ -1,0 +1,100 @@
+--   type:      Oracle Database 12C
+
+
+
+CREATE TABLE ap_country (
+    co_id         NUMBER(3) NOT NULL,
+    co_name       VARCHAR2(20) NOT NULL,
+    tbl_last_dt   DATE NOT NULL
+);
+
+ALTER TABLE ap_country ADD CONSTRAINT ap_country_pk PRIMARY KEY ( co_id );
+
+CREATE TABLE ap_dept (
+    deptno        NUMBER(2) NOT NULL,
+    dname         VARCHAR2(20) NOT NULL,
+    loc_id        NUMBER(3) NOT NULL,
+    tbl_last_dt   DATE NOT NULL
+);
+
+ALTER TABLE ap_dept ADD CONSTRAINT ap_dept_pk PRIMARY KEY ( deptno );
+
+CREATE TABLE ap_emp (
+    empno         NUMBER(4) NOT NULL,
+    ename         VARCHAR2(30) NOT NULL,
+    job           VARCHAR2(30) NOT NULL,
+    mgr           NUMBER(4),
+    hiredate      DATE NOT NULL,
+    sal           NUMBER(7,2) NOT NULL,
+    comm          NUMBER(7,2),
+    deptno        NUMBER(2),
+    park_id       NUMBER(2) NOT NULL,
+    tbl_last_dt   DATE NOT NULL
+);
+
+CREATE UNIQUE INDEX ap_emp__idx ON
+    ap_emp (
+        park_id
+    ASC );
+
+ALTER TABLE ap_emp ADD CONSTRAINT ap_emp_pk PRIMARY KEY ( empno );
+
+CREATE TABLE ap_loc (
+    loc_id        NUMBER(3) NOT NULL,
+    city          VARCHAR2(20) NOT NULL,
+    co_id         NUMBER(3),
+    tbl_last_dt   DATE NOT NULL
+);
+
+ALTER TABLE ap_loc ADD CONSTRAINT ap_loc_pk PRIMARY KEY ( loc_id );
+
+CREATE TABLE ap_park (
+    park_id       NUMBER(2) NOT NULL,
+    floor         NUMBER(2) NOT NULL,
+    tbl_last_dt   DATE NOT NULL
+);
+
+ALTER TABLE ap_park ADD CONSTRAINT ap_park_pk PRIMARY KEY ( park_id );
+
+CREATE TABLE ap_proemp (
+    hours         NUMBER(3) NOT NULL,
+    empno         NUMBER(4),
+    projid        NUMBER(3) NOT NULL,
+    tbl_last_dt   DATE NOT NULL
+);
+
+CREATE TABLE ap_project (
+    projid        NUMBER(3) NOT NULL,
+    pname         VARCHAR2(20),
+    start_date    DATE NOT NULL,
+    end_date      DATE,
+    tbl_last_dt   DATE NOT NULL
+);
+
+ALTER TABLE ap_project ADD CONSTRAINT ap_project_pk PRIMARY KEY ( projid );
+
+ALTER TABLE ap_dept
+    ADD CONSTRAINT ap_dept_ap_loc_fk FOREIGN KEY ( loc_id )
+        REFERENCES ap_loc ( loc_id );
+
+ALTER TABLE ap_emp
+    ADD CONSTRAINT ap_emp_ap_dept_fk FOREIGN KEY ( deptno )
+        REFERENCES ap_dept ( deptno );
+
+ALTER TABLE ap_emp
+    ADD CONSTRAINT ap_emp_ap_park_fk FOREIGN KEY ( park_id )
+        REFERENCES ap_park ( park_id );
+
+ALTER TABLE ap_loc
+    ADD CONSTRAINT ap_loc_ap_country_fk FOREIGN KEY ( co_id )
+        REFERENCES ap_country ( co_id );
+
+ALTER TABLE ap_proemp
+    ADD CONSTRAINT ap_proemp_ap_emp_fk FOREIGN KEY ( empno )
+        REFERENCES ap_emp ( empno );
+
+ALTER TABLE ap_proemp
+    ADD CONSTRAINT ap_proemp_ap_project_fk FOREIGN KEY ( projid )
+        REFERENCES ap_project ( projid );
+
+

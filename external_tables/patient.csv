@@ -1,0 +1,10 @@
+name,treatment_id,invoice_id,address,phone,birth_date,race,martial_status,gender,blood_group,bed_number,floor,discharge_date,follow_up_date,type,treatment_registration_date,emergency_name,emergency_address,emergency_phone,emergency_relationship,emergency_id,hospital_id,department_id,patient_id
+Alana Lowe,,,6520 Arcu. Rd.,(679) 206-7216,1936-11-15,in,consectetuer,ligula,"dolor,",18,5,2022-07-02,,,,,,,,,6,6,15
+Allegra Franks,,,"604-4259 Vitae, Ave",(780) 714-9775,1941-11-03,semper,tellus.,arcu,Proin,3,4,2021-08-26,,,,,,,,,3,3,18
+Forrest Tanner,8,8,Ap #751-1234 Massa Av.,(673) 322-2721,1955-07-13,non,Aenean,Proin,bibendum,,,,2022-07-19,drug,2020-12-25,Martha Walker,381-7329 Sit St.,(516) 496-3718,Proin,8,8,8,8
+Hiroko Dillard,,,6309 Diam St.,(243) 241-6887,1976-12-04,libero.,libero.,"eget,",leo.,18,10,2022-05-27,,,,,,,,,9,9,12
+Jeremy Shaw,4,4,4956 Cras Rd.,(915) 478-7856,1972-05-06,interdum.,a,"risus,",vel,,,,2022-02-22,drug,2022-03-25,Bernard Parks,Ap #664-590 Nonummy Road,(664) 389-7358,non,4,4,4,4
+Mechelle Rhodes,2,2,"P.O. Box 156, 4558 Semper Road",(364) 917-8481,1960-08-17,fermentum,Phasellus,pharetra.,"orci,",,,,2021-05-09,drug,2022-07-29,Alfonso Mooney,3098 Morbi Street,(737) 603-9936,euismod,2,2,2,2
+Palmer Wooten,1,1,297-5374 Ante. St.,(232) 961-0623,1945-08-19,consectetuer,gravida.,"in,",taciti,,,,2020-12-03,drug,2021-06-07,Hanna Sweet,2501 Porttitor Av.,(360) 493-1522,Mauris,1,1,1,1
+Rooney Hickman,,,739-1141 Proin Rd.,(423) 670-8574,1927-08-19,facilisis,Cras,aliquam,est,1,1,2021-04-08,,,,,,,,,1,1,20
+Roth Rosales,,,726-1706 Cras Road,(340) 299-4145,1955-02-16,sit,elit,fringilla,Maecenas,17,7,2021-06-15,,,,,,,,,2,2,19

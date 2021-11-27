@@ -1,0 +1,23 @@
+==  Following is instruction for creating Oracle Data Warehouse schema owner DWS
+==  Login to Oracle Virtual Box terminal and create schema owner for Data Warehouse
+
+$ sqlplus /nolog
+ 
+SQL> conn system/oracle@orcl
+
+Connected.
+
+SQL> create user dws identified by dws
+     default tablespace users
+     account unlock;
+
+User created.
+
+SQL> grant create session, resource, dba to dws;
+
+Grant succeeded.
+
+SQL>grant execute any procedure to dws;
+
+
+SQL>grant create procedure to dws;

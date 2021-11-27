@@ -1,0 +1,159 @@
+-- Login to SQL Developer as DWS user and create DW tables 
+
+CREATE TABLE dw_dept (
+    deptno        NUMBER(2) NOT NULL,
+    dname         VARCHAR2(30) NOT NULL,
+    loc_id        NUMBER(4) NOT NULL,
+    tbl_last_dt   VARCHAR2(16),
+    city          VARCHAR2(30) NOT NULL,
+    co_name       VARCHAR2(30) 
+);
+
+ALTER TABLE dw_dept ADD CONSTRAINT dw_dept_pk PRIMARY KEY ( deptno );
+
+
+=========  RANGE PARTITION EXAMPLE
+
+CREATE TABLE dw_emp
+    (
+    empno         NUMBER(4) NOT NULL,
+    ename         VARCHAR2(30) NOT NULL,
+    job           VARCHAR2(30) NOT NULL,
+    mgr           NUMBER(4),
+    hiredate      DATE NOT NULL,
+    sal           NUMBER(7,2) NOT NULL,
+    comm          NUMBER(7,2),
+    deptno        NUMBER(2),
+    park_id       NUMBER(2) ,
+    tbl_last_dt   DATE NOT NULL,
+    floor         NUMBER(2),
+    pname         VARCHAR2(30),
+    start_date    DATE,
+    end_date      DATE,
+    hours       NUMBER(2)
+    ) PARTITION BY RANGE (hiredate) 
+      ( PARTITION P1 VALUES less than(to_date('01-JAN-1995', 'DD-MON-YYYY')),   
+        PARTITION P2 VALUES less than(to_date('01-JAN-2005', 'DD-MON-YYYY')),   
+        PARTITION  P3 VALUES less than(to_date('01-JAN-2015', 'DD-MON-YYYY')),   
+        PARTITION  P4 VALUES less than(to_date('01-JAN-2025', 'DD-MON-YYYY'))  
+      );
+
+ ALTER TABLE dw_emp ADD CONSTRAINT dw_emp_pk PRIMARY KEY ( empno );
+
+ 
+ ALTER TABLE dw_emp ADD CONSTRAINT dw_emp_dept_fk FOREIGN KEY ( deptno )
+ REFERENCES dw_dept( deptno );
+
+======= LIST PARTITION EXAMPLE
+
+CREATE TABLE dw_emp_2
+    (
+    empno         NUMBER(4) NOT NULL,
+    ename         VARCHAR2(30) NOT NULL,
+    job           VARCHAR2(30) NOT NULL,
+    mgr           NUMBER(4),
+    hiredate      DATE NOT NULL,
+    sal           NUMBER(7,2) NOT NULL,
+    comm          NUMBER(7,2),
+    deptno        NUMBER(2),
+    park_id       NUMBER(2) ,
+    tbl_last_dt   DATE NOT NULL,
+    floor         NUMBER(2),
+    pname         VARCHAR2(30),
+    start_date    DATE,
+    end_date      DATE,
+    hours       NUMBER(2)
+  ) PARTITION BY LIST (JOB) (  
+          PARTITION P11 VALUES ('CLERK'),
+          PARTITION P12 VALUES ('SALESMAN'),
+          PARTITION P13 VALUES ('ANALYST'),
+          PARTITION P14 VALUES ('MANAGER','PRESIDENT') 
+         ); 
+
+======== COMPOSITE PARTITION EXAMPLE RANGE AND LIST
+
+CREATE TABLE dw_emp_3
+    (
+    empno         NUMBER(4) NOT NULL,
+    ename         VARCHAR2(30) NOT NULL,
+    job           VARCHAR2(30) NOT NULL,
+    mgr           NUMBER(4),
+    hiredate      DATE NOT NULL,
+    sal           NUMBER(7,2) NOT NULL,
+    comm          NUMBER(7,2),
+    deptno        NUMBER(2),
+    park_id       NUMBER(2) ,
+    tbl_last_dt   DATE NOT NULL,
+    floor         NUMBER(2),
+    pname         VARCHAR2(30),
+    start_date    DATE,
+    end_date      DATE,
+    hours       NUMBER(2)
+    ) PARTITION BY RANGE (hiredate)
+      SUBPARTITION BY LIST (job)
+      ( PARTITION P1 VALUES less than(to_date('01-JAN-1995', 'DD-MON-YYYY'))
+         (SUBPARTITION P1_S1 VALUES ('CLERK'),
+          SUBPARTITION P1_S2 VALUES ('SALESMAN'),
+          SUBPARTITION P1_S3 VALUES ('ANALYST'),
+          SUBPARTITION P1_S4 VALUES ('MANAGER','PRESIDENT') 
+         ),
+        PARTITION P2 VALUES less than(to_date('01-JAN-2005', 'DD-MON-YYYY')),   
+         (SUBPARTITION P2_S1 VALUES ('CLERK'),
+          SUBPARTITION P2_S2 VALUES ('SALESMAN'),
+          SUBPARTITION P2_S3 VALUES ('ANALYST'),
+          SUBPARTITION P2_S4 VALUES ('MANAGER','PRESIDENT') 
+         ),
+        PARTITION  P3 VALUES less than(to_date('01-JAN-2015', 'DD-MON-YYYY'))
+         (SUBPARTITION P3_S1 VALUES ('CLERK'),
+          SUBPARTITION P3_S2 VALUES ('SALESMAN'),
+          SUBPARTITION P3_S3 VALUES ('ANALYST'),
+          SUBPARTITION P3_S4 VALUES ('MANAGER','PRESIDENT') 
+        ),
+        PARTITION  P4 VALUES less than(to_date('01-JAN-2025', 'DD-MON-YYYY'))
+        (SUBPARTITION P4_S1 VALUES ('CLERK'),
+          SUBPARTITION P4_S2 VALUES ('SALESMAN'),
+          SUBPARTITION P4_S3 VALUES ('ANALYST'),
+          SUBPARTITION P4_S4 VALUES ('MANAGER','PRESIDENT') 
+        )
+    );
+
+
+====================== TABLE CREATED WITH RANGE PARTITION FOR THE DEMO
+
+
+CREATE TABLE dw_emp (
+    empno         NUMBER(4) NOT NULL,
+    ename         VARCHAR2(30) NOT NULL,
+    job           VARCHAR2(30) NOT NULL,
+    mgr           NUMBER(4),
+    hiredate      DATE NOT NULL,
+    sal           NUMBER(7,2) NOT NULL,
+    comm          NUMBER(7,2),
+    deptno        NUMBER(2) NOT NULL,
+    park_id       NUMBER(4),
+    floor         NUMBER(2) NOT NULL,
+    projid        NUMBER(3) NOT NULL,
+    pname         VARCHAR2(30) NOT NULL,
+    start_date    DATE NOT NULL,
+    end_date      DATE NOT NULL,
+    hours         NUMBER(3) NOT NULL,
+    tbl_last_dt   DATE   DEFAULT (SYSDATE) NOT NULL 
+    )
+    PARTITION BY RANGE (hiredate) 
+      ( PARTITION P1 VALUES less than(to_date('01-JAN-1995', 'DD-MON-YYYY')),   
+        PARTITION P2 VALUES less than(to_date('01-JAN-2005', 'DD-MON-YYYY')),   
+        PARTITION  P3 VALUES less than(to_date('01-JAN-2015', 'DD-MON-YYYY')),   
+        PARTITION  P4 VALUES less than(to_date('01-JAN-2025', 'DD-MON-YYYY'))  
+      );
+
+ALTER TABLE dw_emp
+    ADD CONSTRAINT dw_emp_pk PRIMARY KEY ( empno,
+                                           park_id,
+                                           projid );
+
+ALTER TABLE dw_emp
+    ADD CONSTRAINT dw_emp_dw_dept_fk FOREIGN KEY ( deptno )
+        REFERENCES dw_dept ( deptno );
+
+
+
