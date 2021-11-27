@@ -1,3 +1,5 @@
+-- FULL
+
 -- *************** SqlDBM: PostgreSQL ****************;
 -- ***************************************************;
 
@@ -10,7 +12,7 @@ CREATE TABLE stg_dw_treatment
  "date"                 date NOT NULL,
  type                 varchar(50) NOT NULL,
  result_status        varchar(50) NOT NULL,
- description          varchar(50) NOT NULL,
+ description          varchar(100) NOT NULL,
  laboratory_treatment varchar(50) NULL,
  lab_test_type        varchar(50) NULL,
  lab_test_date        date NULL,
@@ -18,7 +20,7 @@ CREATE TABLE stg_dw_treatment
  drug                 varchar(50) NULL,
  drug_dose            varchar(50) NULL,
  surgery              varchar(50) NULL,
- surgery_description  varchar(50) NULL,
+ surgery_description  varchar(100) NULL,
  surgery_date         date NULL,
  surgery_result       varchar(50) NULL,
  CONSTRAINT PK_362 PRIMARY KEY ( treatment_id )
@@ -81,8 +83,8 @@ CREATE TABLE stg_dw_hospital
 CREATE TABLE stg_dw_patient
 (
  name                        varchar(50) NOT NULL,
- treatment_id                int NOT NULL,
- invoice_id                  int NOT NULL,
+ treatment_id                int,
+ invoice_id                  int,
  address                     varchar(50) NOT NULL,
  phone                       varchar(50) NOT NULL,
  birth_date                  date NOT NULL,
@@ -90,20 +92,20 @@ CREATE TABLE stg_dw_patient
  martial_status              varchar(50) NOT NULL,
  gender                      varchar(50) NOT NULL,
  blood_group                 varchar(50) NOT NULL,
- bed_number                  int NULL,
- "floor"                       int NULL,
- discharge_date              date NULL,
- follow_up_date              date NULL,
- type                        varchar(50) NULL,
- treatment_registration_date date NOT NULL,
- emergency_name              varchar(50) NOT NULL,
- emergency_address           varchar(50) NOT NULL,
- emergency_phone             varchar(50) NOT NULL,
- emergency_relationship      varchar(50) NOT NULL,
- emergency_id                int NOT NULL,
- hospital_id                 int NOT NULL,
- department_id               int NOT NULL,
- patient_id                  int NOT NULL,
+ bed_number                  int,
+ "floor"                       int,
+ discharge_date              date,
+ follow_up_date              date,
+ type                        varchar(50),
+ treatment_registration_date date,
+ emergency_name              varchar(50),
+ emergency_address           varchar(50),
+ emergency_phone             varchar(50),
+ emergency_relationship      varchar(50),
+ emergency_id                int,
+ hospital_id                 int,
+ department_id               int,
+ patient_id                  int,
  CONSTRAINT PK_339 PRIMARY KEY ( patient_id, birth_date),
  CONSTRAINT FK_435 FOREIGN KEY ( treatment_id ) REFERENCES stg_dw_treatment ( treatment_id ),
  CONSTRAINT FK_440 FOREIGN KEY ( invoice_id ) REFERENCES stg_dw_insurance_invoice ( invoice_id ),
@@ -153,21 +155,13 @@ CREATE TABLE stg_dw_doctor
  hospital_id         int NOT NULL,
  department_id       int NOT NULL,
  disease_id          int NOT NULL,
- patient_id          int NOT NULL,
- patient_dob         date NOT NULL,
  doctor_id           int NOT NULL,
  CONSTRAINT PK_321 PRIMARY KEY ( doctor_id ),
  CONSTRAINT FK_421 FOREIGN KEY ( hospital_id, department_id ) REFERENCES stg_dw_hospital ( hospital_id, department_id ),
- CONSTRAINT FK_450 FOREIGN KEY ( patient_id, patient_dob) REFERENCES stg_dw_patient ( patient_id, birth_date )
 );
 
 CREATE INDEX FK_424 ON stg_dw_doctor
 (
  hospital_id,
  department_id
-);
-
-CREATE INDEX FK_452 ON stg_dw_doctor
-(
- patient_id
 );

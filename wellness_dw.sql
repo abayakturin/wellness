@@ -153,21 +153,13 @@ CREATE TABLE doctor
  hospital_id         int NOT NULL,
  department_id       int NOT NULL,
  disease_id          int NOT NULL,
- patient_id          int NOT NULL,
- patient_dob         date NOT NULL,
  doctor_id           int NOT NULL,
  CONSTRAINT PK_21 PRIMARY KEY ( doctor_id ),
  CONSTRAINT FK_121 FOREIGN KEY ( hospital_id, department_id ) REFERENCES hospital ( hospital_id, department_id ),
- CONSTRAINT FK_150 FOREIGN KEY ( patient_id, patient_dob) REFERENCES patient ( patient_id, birth_date )
 );
 
 CREATE INDEX FK_124 ON doctor
 (
  hospital_id,
  department_id
-);
-
-CREATE INDEX FK_152 ON doctor
-(
- patient_id
 );
