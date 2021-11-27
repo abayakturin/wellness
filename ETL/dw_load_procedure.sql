@@ -1,30 +1,35 @@
 -- FULL LOAD
 
-create or replace PROCEDURE  load_dw_doctor IS
-dcnt NUMBER;
-icnt NUMBER;
-err_code NUMBER;
-err_msg VARCHAR2(32000);
+create or replace PROCEDURE  load_dw_insurance_invoice
+(dcnt int,
+icnt int,
+err_code int,
+err_msg text)
+language plpgsql
+as $$
+DECLARE 
+	dcnt integer := 0;
+	icnt integer := 0;
+	c record;
 BEGIN
-dcnt := 0;
-icnt := 0;
-for c in (select * from stg_dw_doctor)
+for c in execute 'select * from stg_dw_insurance_invoice'
 loop
-    delete from doctor where empno=c.empno and park_id=c.park_id and projid=c.projid;
+    delete from dw_insurance_invoice where invoice_id=c.invoice_id and insurance_id=c.insurance_id;
     dcnt := dcnt+1;
-     INSERT INTO DW_EMP  (empno,ename,job,mgr,hiredate,sal,comm,deptno,park_id,floor,projid,pname,start_date,end_date,hours,tbl_last_dt)
-     VALUES (c.empno,c.ename,c.job,c.mgr,c.hiredate,c.sal,c.comm,c.deptno,c.park_id,c.floor,c.projid,c.pname,c.start_date,c.end_date,c.hours,SYSDATE);
+     INSERT INTO dw_insurance_invoice  (invoice_id, insurance_company, insurance_number, invoice_date, invoice_amount, invoice_payment_type, insurance_id)
+     VALUES (c.invoice_id, c.insurance_company, c.insurance_number, c.invoice_date, c.invoice_amount, c.invoice_payment_type, c.insurance_id);
      icnt := icnt+1;
-     commit;
-     dbms_output.put_line('Total Deleted Record: '||dcnt||' Total Inserted Records: '||icnt);
+     raise notice
+     'Total Deleted Record: % Total Inserted Records: %', dcnt, icnt;
 end loop;
-     commit;
-     dbms_output.put_line('Total Deleted Record: '||dcnt||' Total Inserted Records: '||icnt);
+     raise notice
+     'Total Deleted Record: % Total Inserted Records: %', dcnt, icnt;
 EXCEPTION
     WHEN OTHERS THEN
          err_code := SQLCODE;
          err_msg  := SQLERRM;
-         dbms_output.put_line('Error code ' || err_code || ': ' || err_msg);
-END;
+		 raise notice
+         'Error code %: %', err_code, err_msg;
+END;$$
 
 -- INCREMENTAL LOAD 
