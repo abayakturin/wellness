@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from config import config
+import os
 
 params_db = config('postgresql')
 params_django = config('django')

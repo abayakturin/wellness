@@ -312,7 +312,7 @@ class Hospital(models.Model):
     general_phone = models.CharField(max_length=150)
     registration_phone = models.CharField(max_length=150)
     admin_phone = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False

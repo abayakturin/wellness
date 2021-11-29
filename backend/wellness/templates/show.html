@@ -1,0 +1,47 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Hospital Records</title>  
+     {%  load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Hospital ID</th>  
+        <th>Hospital Name</th>  
+        <th>Hospital Address</th> 
+        <th>Hospital Specialty</th> 
+        <th>Hospital Emergency Phone</th> 
+        <th>Hospital General Phone</th>  
+        <th>Hospital Registration Phone</th> 
+        <th>Hospital Administration Phone</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for hospital in hospitals %}  
+    <tr>  
+        <td>{{ hospital.id }}</td>  
+        <td>{{ hospital.name }}</td>  
+        <td>{{ hospital.address }}</td>  
+        <td>{{ hospital.specialty }}</td>  
+        <td>{{ hospital.emergency_phone }}</td>  
+        <td>{{ hospital.general_phone }}</td> 
+        <td>{{ hospital.registration_phone }}</td> 
+        <td>{{ hospital.admin_phone }}</td> 
+        <td>  
+            <a href="/edit/{{ hospital.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ hospital.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/hospital" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
