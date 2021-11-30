@@ -9,7 +9,7 @@ def hospital(request):
         if form.is_valid():  
             try:  
                 form.save()  
-                return redirect('/show')  
+                return redirect('/main')  
             except:  
                 pass  
     else:  
@@ -17,7 +17,7 @@ def hospital(request):
     return render(request,'index.html',{'form':form})  
 def show(request):  
     hospitals = Hospital.objects.all().order_by('id')
-    return render(request,"show.html",{'hospitals':hospitals})  
+    return render(request,"main.html",{'hospitals':hospitals})  
 def edit(request, id):  
     hospital = Hospital.objects.get(id=id)  
     return render(request,'edit.html', {'hospital':hospital})  
@@ -27,9 +27,9 @@ def update(request, id):
     print(form)
     if form.is_valid():  
         form.save()  
-        return redirect("/show") 
+        return redirect("/main") 
     return render(request, 'edit.html', {'hospital': hospital})  
 def destroy(request, id):  
     hospital = Hospital.objects.get(id=id)  
     hospital.delete()  
-    return redirect("/show")  
+    return redirect("/main")  

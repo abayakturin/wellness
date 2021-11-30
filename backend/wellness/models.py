@@ -48,7 +48,7 @@ class AuthUser(models.Model):
     email = models.CharField(max_length=254)
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
-    date_joined = models.DateTimeField()
+    date_joined = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -84,7 +84,7 @@ class ConsultingDoctor(models.Model):
     weekly_pay = models.IntegerField()
     min_weekly_hours = models.IntegerField()
     overtime_hourly_pay = models.IntegerField()
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
     id = models.OneToOneField('Doctor', models.DO_NOTHING, db_column='id', primary_key=True)
 
     class Meta:
@@ -94,7 +94,7 @@ class ConsultingDoctor(models.Model):
 
 class ConsultingDoctorHistory(models.Model):
     name = models.CharField(max_length=150)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     contract_date = models.DateField()
     contract_phone = models.CharField(max_length=150)
     weekly_pay = models.IntegerField()
@@ -109,7 +109,7 @@ class ConsultingDoctorHistory(models.Model):
 
 class ConsultingDoctorHistory202110(models.Model):
     name = models.CharField(max_length=150)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     contract_date = models.DateField()
     contract_phone = models.CharField(max_length=150)
     weekly_pay = models.IntegerField()
@@ -127,7 +127,7 @@ class Department(models.Model):
     name = models.CharField(max_length=150)
     phone = models.CharField(max_length=150)
     location = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -137,7 +137,7 @@ class Department(models.Model):
 class DepartmentDoctor(models.Model):
     doctor = models.ForeignKey('Doctor', models.DO_NOTHING)
     department = models.ForeignKey(Department, models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -147,7 +147,7 @@ class DepartmentDoctor(models.Model):
 class DepartmentPatient(models.Model):
     department = models.ForeignKey(Department, models.DO_NOTHING)
     patient = models.ForeignKey('Patient', models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -158,7 +158,7 @@ class Disease(models.Model):
     icd = models.IntegerField(primary_key=True)
     description = models.CharField(max_length=150)
     type = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -166,7 +166,7 @@ class Disease(models.Model):
 
 
 class DjangoAdminLog(models.Model):
-    action_time = models.DateTimeField()
+    action_time = models.DateTimeField(auto_now_add=True)
     object_id = models.TextField(blank=True, null=True)
     object_repr = models.CharField(max_length=200)
     action_flag = models.SmallIntegerField()
@@ -193,7 +193,7 @@ class DjangoMigrations(models.Model):
     id = models.BigAutoField(primary_key=True)
     app = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
-    applied = models.DateTimeField()
+    applied = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -203,7 +203,7 @@ class DjangoMigrations(models.Model):
 class DjangoSession(models.Model):
     session_key = models.CharField(primary_key=True, max_length=40)
     session_data = models.TextField()
-    expire_date = models.DateTimeField()
+    expire_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -216,7 +216,7 @@ class Doctor(models.Model):
     office_phone = models.CharField(max_length=150)
     personal_phone = models.CharField(max_length=150)
     specialty = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -226,7 +226,7 @@ class Doctor(models.Model):
 class DoctorDisease(models.Model):
     doctor = models.ForeignKey(Doctor, models.DO_NOTHING)
     disease = models.ForeignKey(Disease, models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -236,7 +236,7 @@ class DoctorDisease(models.Model):
 class DoctorPatient(models.Model):
     doctor = models.ForeignKey(Doctor, models.DO_NOTHING)
     patient = models.ForeignKey('Patient', models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -247,7 +247,7 @@ class DrugTreatment(models.Model):
     id = models.OneToOneField('Treatment', models.DO_NOTHING, db_column='id', primary_key=True)
     drug = models.CharField(max_length=150)
     dose = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -260,7 +260,7 @@ class EmergencyContact(models.Model):
     address = models.CharField(max_length=150)
     phone = models.CharField(max_length=150)
     relationship = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -271,7 +271,7 @@ class FulltimeDoctor(models.Model):
     name = models.CharField(max_length=150)
     hire_date = models.DateField()
     annual_pay = models.IntegerField()
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
     id = models.OneToOneField(Doctor, models.DO_NOTHING, db_column='id', primary_key=True)
 
     class Meta:
@@ -281,7 +281,7 @@ class FulltimeDoctor(models.Model):
 
 class FulltimeDoctorHistory(models.Model):
     name = models.CharField(max_length=150)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     hire_date = models.DateField()
     annual_pay = models.IntegerField()
     id = models.IntegerField(primary_key=True)
@@ -293,7 +293,7 @@ class FulltimeDoctorHistory(models.Model):
 
 class FulltimeDoctorHistory202110(models.Model):
     name = models.CharField(max_length=150)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     hire_date = models.DateField()
     annual_pay = models.IntegerField()
     id = models.IntegerField(primary_key=True)
@@ -322,7 +322,7 @@ class Hospital(models.Model):
 class HospitalDepartment(models.Model):
     hospital = models.ForeignKey(Hospital, models.DO_NOTHING)
     department = models.ForeignKey(Department, models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -334,7 +334,7 @@ class InPatient(models.Model):
     bed_number = models.IntegerField()
     floor = models.IntegerField()
     discharge_date = models.DateField()
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -343,7 +343,7 @@ class InPatient(models.Model):
 
 class InPatientHistory(models.Model):
     id = models.IntegerField(primary_key=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     bed_number = models.IntegerField()
     floor = models.IntegerField()
     discharge_date = models.DateField()
@@ -355,7 +355,7 @@ class InPatientHistory(models.Model):
 
 class InPatientHistory202110(models.Model):
     id = models.IntegerField(primary_key=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     bed_number = models.IntegerField()
     floor = models.IntegerField()
     discharge_date = models.DateField()
@@ -369,7 +369,7 @@ class Insurance(models.Model):
     id = models.IntegerField(primary_key=True)
     insurance_company = models.CharField(max_length=50)
     insurance_number = models.IntegerField()
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -379,7 +379,7 @@ class Insurance(models.Model):
 class InsuranceInvoice(models.Model):
     insurance = models.ForeignKey(Insurance, models.DO_NOTHING)
     invoice = models.ForeignKey('Invoice', models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -391,7 +391,7 @@ class Invoice(models.Model):
     date = models.DateField()
     amount = models.FloatField()
     payment_type = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -403,7 +403,7 @@ class LaboratoryTreatment(models.Model):
     test_type = models.CharField(max_length=150)
     test_date = models.DateField()
     test_result = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
     id = models.OneToOneField('Treatment', models.DO_NOTHING, db_column='id', primary_key=True)
 
     class Meta:
@@ -414,7 +414,7 @@ class LaboratoryTreatment(models.Model):
 class OutPatient(models.Model):
     id = models.OneToOneField('Patient', models.DO_NOTHING, db_column='id', primary_key=True)
     follow_up_date = models.DateField()
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -423,7 +423,7 @@ class OutPatient(models.Model):
 
 class OutPatientHistory(models.Model):
     id = models.IntegerField(primary_key=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     follow_up_date = models.DateField()
 
     class Meta:
@@ -433,7 +433,7 @@ class OutPatientHistory(models.Model):
 
 class OutPatientHistory202110(models.Model):
     id = models.IntegerField(primary_key=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     follow_up_date = models.DateField()
 
     class Meta:
@@ -451,7 +451,7 @@ class Patient(models.Model):
     martial_status = models.CharField(max_length=150)
     gender = models.CharField(max_length=150)
     blood_group = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -461,7 +461,7 @@ class Patient(models.Model):
 class PatientEmergencyContact(models.Model):
     patient = models.ForeignKey(Patient, models.DO_NOTHING)
     emergency_contact = models.ForeignKey(EmergencyContact, models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -471,7 +471,7 @@ class PatientEmergencyContact(models.Model):
 class PatientInsurance(models.Model):
     patient = models.ForeignKey(Patient, models.DO_NOTHING)
     insurance = models.ForeignKey(Insurance, models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -481,7 +481,7 @@ class PatientInsurance(models.Model):
 class PatientInvoice(models.Model):
     patient = models.ForeignKey(Patient, models.DO_NOTHING)
     invoice = models.ForeignKey(Invoice, models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -491,7 +491,7 @@ class PatientInvoice(models.Model):
 class PatientRegistration(models.Model):
     patient = models.ForeignKey(Patient, models.DO_NOTHING)
     registration = models.ForeignKey('Registration', models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -501,7 +501,7 @@ class PatientRegistration(models.Model):
 class PatientTreatment(models.Model):
     patient = models.ForeignKey(Patient, models.DO_NOTHING)
     treatment = models.ForeignKey('Treatment', models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -511,7 +511,7 @@ class PatientTreatment(models.Model):
 class Registration(models.Model):
     id = models.IntegerField(primary_key=True)
     registration_date = models.DateField()
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -521,7 +521,7 @@ class Registration(models.Model):
 class RegistrationTreatment(models.Model):
     registration = models.ForeignKey(Registration, models.DO_NOTHING)
     treatment = models.ForeignKey('Treatment', models.DO_NOTHING)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -534,7 +534,7 @@ class SurgeryTreatment(models.Model):
     description = models.CharField(max_length=150)
     date = models.DateField()
     result = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -547,7 +547,7 @@ class Treatment(models.Model):
     type = models.CharField(max_length=150)
     result_status = models.CharField(max_length=150)
     description = models.CharField(max_length=150)
-    tbl_last_date = models.DateTimeField()
+    tbl_last_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         managed = False
@@ -556,7 +556,7 @@ class Treatment(models.Model):
 
 class TreatmentHistory(models.Model):
     id = models.IntegerField(primary_key=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     date = models.DateField()
     type = models.CharField(max_length=150)
     result_status = models.CharField(max_length=150)
@@ -569,7 +569,7 @@ class TreatmentHistory(models.Model):
 
 class TreatmentHistory202110(models.Model):
     id = models.IntegerField(primary_key=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now_add=True)
     date = models.DateField()
     type = models.CharField(max_length=150)
     result_status = models.CharField(max_length=150)
