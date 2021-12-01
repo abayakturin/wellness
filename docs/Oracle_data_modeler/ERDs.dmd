@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="ERDs" id="DE094764-7BCC-2679-5CE8-CB8FFBFE8758" version="3.5">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:18:45 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>DE094764-7BCC-2679-5CE8-CB8FFBFE8758</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="A02EDA5F-44D3-CB92-CDB2-101A19C5C309">
+<designStoragePath>C:\sql_dbm_ddl</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="645B60BA-CEC1-9716-9FCF-4652A4C2937B">
+<designStoragePath>C:\sql_dbm_ddl</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="7FE9FE17-F206-AB3C-6B26-9035BDE06529">
+<designStoragePath>C:\wellness_dw_oracle</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

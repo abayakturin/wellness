@@ -1,0 +1,129 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6E22A3C0-18B7-0452-F854-C85F927A1B25" name="insurance invoice">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>1A9F14A9-154E-A9C7-E27C-2EC6C48E97C1</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="invoice id" id="0301832A-C80E-F70D-30DE-AE2120AB584C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>87B56B65-F852-0329-B2B1-40B2DFB6BBC1</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="insrurance company" id="6B527D8A-78BA-A5EB-8862-B393BC45D3F8">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>4F2F3277-FAB2-5D31-81A6-CCC60FA489A6</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="insurance number" id="0BDF8D51-5D0F-9C50-DF47-F0D9979FD1E3">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>E9E011FD-A927-28D4-B311-C7BF9FFE90CC</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="invoice date" id="FCFB9770-5B55-9DCD-7727-43C8B41901D0">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>7153C0E6-B6F8-92D9-039B-0F8F7B053BB8</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>2FF19F11-F569-5D43-685D-4B0BA5E55E07</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="invoice amount" id="FB53A6B6-DFE0-E0F0-B00E-D769CC85D6A1">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>A9ABEF4B-06C2-F569-889D-154F142DB56F</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT056</logicalDatatype>
+<domain>A5438CCD-6487-02D4-E253-5C9F08A1693E</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="invoice payment type" id="992F0666-A607-7C3C-5F61-942509409052">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>AF9FD3F9-D0F8-4944-B06C-D78D9D92EBAB</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="insurance id" id="AEB7216B-DEC2-683D-2EAB-6848ECBB5071">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>C70F687B-5215-C47B-40A6-D92C2BD43DF0</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="15F5B612-8143-B8C9-DA5B-AF4B66DF1381" name="PK 79">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>7C400EA1-DB0F-F889-1E2E-CDBAE54A9B6C</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0301832A-C80E-F70D-30DE-AE2120AB584C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,265 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0E5A201D-BCB9-7082-BA84-7B7B142FAC80" name="doctor">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>9F056990-AB99-B886-8A4C-8B863918D692</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="name" id="6AF0217B-EE5E-530D-258C-3D5EE00DE99C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>549AA921-201E-1596-4B55-4A9C89023971</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="office phone" id="8BC004A2-E41A-08FF-73FA-150DFAB42F98">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>21D0DD6E-3501-C933-BC07-087DA47F5BED</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="personal phone" id="4D21E792-EBCE-E2EE-7C3E-9D5B3D27997C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>1C42272D-40AA-E3DE-8A4C-DA5590CADA1E</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="specialty" id="FC917F0A-7733-EBEA-3BFD-DC63C02501D7">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>9B8235B0-9F15-5F02-897F-0B0060BE2346</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hire date" id="DD541D0D-AAD0-5AB3-E85A-5BEFC7C0F4FC">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>BDC6E292-9EF3-801A-06C8-D2CEBADA7E7E</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>2FF19F11-F569-5D43-685D-4B0BA5E55E07</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="annual pay" id="A7C300DB-33BE-F841-434D-9978E08F9F3C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>21EAFB3D-CA08-3EDB-1F05-8B7436E497DE</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="contract date" id="3F9C3681-3265-768A-2EC1-161FCED6A0F1">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>41D69857-322B-2C37-5BE5-62AECDC4CED5</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>2FF19F11-F569-5D43-685D-4B0BA5E55E07</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="contract phone" id="E67BCA9B-F872-DB0A-07D2-4E3DAA6CADCF">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>ACAAB1FE-0A38-D845-06DF-58A133536539</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="weekly pay" id="12CF82F3-724D-E96A-036B-08198C5AE739">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>EE568125-9A16-AC3C-278B-AD640E246D2A</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CFE0EA43-DF57-19D8-A01A-1086875DAF22</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="min weekly hours" id="DDC1BFE1-A250-20FB-FD7E-EC8E8A6FB83B">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>24176F84-4CB0-F48E-EFF5-B53ED567ED56</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="overtime hourly pay" id="C72AA543-EF0C-FD4B-BF49-F3704CA37EC4">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>1C166E0A-5CEE-A976-626B-CB499A68630D</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CFE0EA43-DF57-19D8-A01A-1086875DAF22</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="disease description" id="BC8A4282-4418-BC32-89B1-44EA6802B5A8">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>5D9371C1-0D48-D511-6D73-23C291C8EBA0</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="disease type" id="40B40FBC-6EE8-4DB9-6F49-41267931535C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>C669DBD9-3996-D736-557E-A3A3FB401BBB</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="hospital id" id="215489C4-17C1-CBBD-DD27-468329392A83">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>1EEF08B1-4C49-DDD5-AE94-DF194550B311</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<referedAttribute>D3859EED-D0B8-D545-EC19-728651E67EA3</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="department id" id="02342238-D89F-291F-58DF-EA44B3320BC0">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>1EEF08B1-4C49-DDD5-AE94-DF194550B311</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<referedAttribute>BF106299-0F46-89AF-AC75-9D95799AE30B</referedAttribute>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="disease id" id="C0CFAE92-FE91-A967-67D8-E676B972B2D7">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>04D58324-F6B4-54ED-D394-8210CB9B7050</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="doctor id" id="81F86FDA-DAC3-CA96-0D77-E1318BFEBC59">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>F79F4B98-A1F4-47DC-6A3C-FF550525CE35</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B01A618C-24AF-D277-9F1E-A4C0499507BD" name="PK 21">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>75C8AF7B-3013-D7DA-5113-56FA6BEA8469</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>81F86FDA-DAC3-CA96-0D77-E1318BFEBC59</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

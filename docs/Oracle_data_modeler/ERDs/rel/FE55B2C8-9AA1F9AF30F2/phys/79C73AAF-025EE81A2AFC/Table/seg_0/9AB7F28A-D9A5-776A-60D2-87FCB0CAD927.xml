@@ -1,0 +1,187 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="patient" directorySegmentName="seg_0" id="9AB7F28A-D9A5-776A-60D2-87FCB0CAD927">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<logging>YES</logging>
+<partitionList class="oracle.dbtools.crest.model.design.storage.oracle.v11g.PartitionListOraclev11g" name="PL1" id="87C51BEC-B20C-C80A-F013-405499972DB8">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<columnIDs>67A6CFA3-E2EF-5980-63B2-24E7F099528C</columnIDs>
+</partitionList>
+<partitioned>YES</partitioned>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="emergency_relationship" id="086E85E1-F3F8-69F0-5F83-4E41B0ACC690">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="patient_id" id="0B93D2E8-8877-3AB1-DDE6-942E33CC8EFA">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="type" id="0C4C73D4-98EB-F852-77EC-CC23E960663E">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="emergency_id" id="23B944DA-FB61-9BBD-20B4-9106CA5C101B">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="blood_group" id="266E010A-289E-9AE1-4426-7D2767EF647D">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="gender" id="399A9043-A979-4C1C-22F6-ED9FFB64DFDB">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="emergency_name" id="3D8C4222-1A7F-4669-9869-60DA2A30578A">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="martial_status" id="45C1271F-D04B-ACB7-9E47-6A88F9B40211">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="treatment_registration_date" id="45CADBC1-9DC0-0659-472B-0D60987B5FFB">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="birth_date" id="67A6CFA3-E2EF-5980-63B2-24E7F099528C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="discharge_date" id="6DE9E78F-2C85-C93A-390D-B41DA2DC2331">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="phone" id="72D90A8A-DA9B-ACDA-83A7-4A3A6394432B">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="emergency_phone" id="96C2B2AE-5F8C-FECC-1B7B-A2377E3A6836">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="floor" id="A194FA97-FD12-3D8B-1398-39356962ED70">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="emergency_address" id="A1F44337-16B7-07E3-5CBE-6BF2761282AB">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="hospital_id" id="A81B03CE-856B-619D-F5BE-6B7DE11D704E">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="name" id="B0D798C1-894B-E4CF-C87D-7933230EF61B">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="race" id="B1108413-1B00-2C41-4C60-3A32202E9466">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="invoice_id" id="B461DAC7-F46F-F3FD-352B-8BA3A1AFDB1C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="follow_up_date" id="B79BB132-8FF6-B392-5F85-7D6D7EEB4E7F">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="treatment_id" id="D37D8EE2-594E-361D-C403-F5A9F3976B21">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="bed_number" id="D5E23A2C-60B0-0914-4F37-F495607B8F92">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="department_id" id="E1221184-D2BA-537D-5A9B-D8215262D377">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="address" id="E5F205B1-D5DD-5E3D-32C3-8DF6ED3B70D7">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="FK_149" id="5B436006-1FEF-F145-44AC-09875059C68E">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="FK_143" id="A8188B06-0491-773E-BE4C-CD252599B26E">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="FK_137" id="BFE08334-7EFB-6A08-D9B5-65D878735AB6">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_135" id="788D4E80-B26D-3FD1-94FF-4243272C5FD1">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_140" id="934D0170-8F97-8C45-F9E0-09B5351D4916">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="FK_146" id="D500E8B5-3A29-C222-3947-BD804F2088EC">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_39" id="4479E8B4-EE0D-C17F-8BD2-F20E3221AC80">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

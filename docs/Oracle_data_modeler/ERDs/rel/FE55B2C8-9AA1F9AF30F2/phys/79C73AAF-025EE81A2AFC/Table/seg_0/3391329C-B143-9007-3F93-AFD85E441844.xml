@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="treatment" directorySegmentName="seg_0" id="3391329C-B143-9007-3F93-AFD85E441844">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="surgery_date" id="043F464A-06A6-FFFC-511A-268C3704B56A">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="laboratory_treatment" id="443BAFB8-4516-EA04-D4FB-22A7255937C8">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="lab_test_date" id="4593EBA9-6AAF-1E00-A214-26BC47A6CBB8">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="drug_dose" id="4A420D98-4609-4632-BC7E-DC6D91CB264E">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="type" id="6E7C4B0B-A35E-598B-2E13-CC0681E30199">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="lab_test_result" id="75DE9885-7C3F-BF67-2182-BC6997705EB7">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="result_status" id="76FD349C-245D-983F-7A7F-F51EE6A0B62F">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="surgery" id="7B93A54C-34A6-3CDD-7BCC-9198AC1D8652">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="treatment_id" id="854C14ED-C000-C655-017F-D2676D034758">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="date" id="9ADB5402-7172-6577-CB32-0AFD5F6FAAB9">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+</ColumnProxy>
+<ColumnProxy name="surgery_result" id="AABC626E-E47E-CF16-79A9-D97AC262949A">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="lab_test_type" id="AF4E519C-4B61-3E85-3136-9B10C6256CB2">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="drug" id="C27142DB-EE1E-DC2A-AC73-CE69DDEDAED4">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="description" id="D2AB8537-8917-DD2D-69F2-110BE81BAB60">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="surgery_description" id="DE8D43F7-93F7-F3D5-23DD-616879D44A7A">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_62" id="4D4265D0-5BF6-FB43-185D-1887782135E0">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

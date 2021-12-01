@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="wellness_dw_oracle_Domains">
+<domains>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="BINARY DOUBLE_0_0_0" id="A5438CCD-6487-02D4-E253-5C9F08A1693E">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>wellness_dw_oracle_Domains</fileName>
+<logicalDatatype>LOGDT056</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_50" id="C0965584-5314-BB9C-392C-65C19C0D12E6">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>50</dataTypeSize>
+<fileName>wellness_dw_oracle_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_0_0_0" id="CFE0EA43-DF57-19D8-A01A-1086875DAF22">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>wellness_dw_oracle_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+</domains>
+</DomainFile>

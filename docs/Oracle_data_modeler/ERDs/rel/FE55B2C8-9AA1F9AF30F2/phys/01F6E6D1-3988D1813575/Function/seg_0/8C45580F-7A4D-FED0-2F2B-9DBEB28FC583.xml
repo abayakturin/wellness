@@ -1,0 +1,829 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="treatment_history_trigger" directorySegmentName="seg_0" id="8C45580F-7A4D-FED0-2F2B-9DBEB28FC583">
+<sourceDDLFile>sql_dbm_ddl.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:22:43 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<source>CREATE OR REPLACE FUNCTION treatment_history_trigger()
+  RETURNS trigger AS
+$BODY$
+  DECLARE
+    table_name text;
+  BEGIN
+    table_name := &apos;treatment_history_&apos; || to_char(CURRENT_DATE, &apos;yyyy_mm&apos;);
+    IF NOT EXISTS (SELECT 1 FROM pg_class WHERE relname = table_name)
+    THEN
+      EXECUTE &apos;CREATE TABLE IF NOT EXISTS &apos; || table_name ||
+              &apos; () INHERITS (treatment_history);&apos;;
+    END IF;
+    EXECUTE &apos;INSERT INTO &apos; || table_name ||
+            &apos;(id, date, type, result_status, description) VALUES ($1.id, $1.date, $1.type, $1.result_status, $1.description);&apos; USING NEW;
+    RETURN NEW;
+  END
+$BODY$
+  LANGUAGE plpgsql;
+
+CREATE TRIGGER treatment_history_trigger
+AFTER INSERT OR UPDATE ON treatment FOR EACH ROW
+EXECUTE PROCEDURE treatment_history_trigger();
+
+
+
+
+-- ************************************** registration
+
+CREATE TABLE registration
+(
+ &quot;id&quot;                int NOT NULL,
+ registration_date date NOT NULL,
+ TBL_LAST_DATE     timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_347 PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+
+-- ************************************** patient with history table
+
+CREATE TABLE patient
+(
+ &quot;id&quot;             int NOT NULL,
+ name           varchar NOT NULL,
+ address        varchar NOT NULL,
+ phone          varchar NOT NULL,
+ birth_date     date NOT NULL,
+ race           varchar NOT NULL,
+ martial_status varchar NOT NULL,
+ gender         varchar NOT NULL,
+ blood_group    varchar NOT NULL,
+ TBL_LAST_DATE  timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_322 PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+
+
+
+-- ************************************** invoice
+
+CREATE TABLE invoice
+(
+ &quot;id&quot;            int NOT NULL,
+ &quot;date&quot;          date NOT NULL,
+ amount        float NOT NULL,
+ payment_type  varchar NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_350 PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+
+
+
+-- ************************************** insurance
+
+CREATE TABLE insurance
+(
+ &quot;id&quot;                int NOT NULL,
+ insurance_company varchar(50) NOT NULL,
+ insurance_number  int NOT NULL,
+ TBL_LAST_DATE     timestamp NOT NULL,
+ CONSTRAINT PK_430 PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+
+
+
+-- ************************************** hospital
+
+CREATE TABLE hospital
+(
+ &quot;id&quot;                 int NOT NULL,
+ name               varchar NOT NULL,
+ address            varchar NOT NULL,
+ specialty          varchar NOT NULL,
+ emergency_phone    varchar NOT NULL,
+ general_phone      varchar NOT NULL,
+ registration_phone varchar NOT NULL,
+ admin_phone        varchar NOT NULL,
+ TBL_LAST_DATE      timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_hospital PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+
+
+
+-- ************************************** emergency_contact
+
+CREATE TABLE emergency_contact
+(
+ &quot;id&quot;            int NOT NULL,
+ name          varchar NOT NULL,
+ address       varchar NOT NULL,
+ phone         varchar NOT NULL,
+ relationship  varchar NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_365 PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+
+
+
+-- ************************************** doctor
+
+CREATE TABLE doctor
+(
+ &quot;id&quot;             int NOT NULL,
+ name           varchar NOT NULL,
+ office_phone   varchar NOT NULL,
+ personal_phone varchar NOT NULL,
+ specialty      varchar NOT NULL,
+ TBL_LAST_DATE  timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_291 PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+
+
+
+-- ************************************** disease
+
+CREATE TABLE disease
+(
+ icd           int NOT NULL,
+ description   varchar NOT NULL,
+ type          varchar NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_248 PRIMARY KEY ( icd )
+);
+
+
+
+
+
+
+
+
+-- ************************************** department
+
+CREATE TABLE department
+(
+ &quot;id&quot;            int NOT NULL,
+ name          varchar NOT NULL,
+ phone         varchar NOT NULL,
+ location      varchar NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_286 PRIMARY KEY ( &quot;id&quot; )
+);
+
+
+
+
+
+-- ************************************** registration_treatment
+
+CREATE TABLE registration_treatment
+(
+ registration_id int NOT NULL,
+ treatment_id    int NOT NULL,
+ TBL_LAST_DATE   timestamp NOT NULL,
+ CONSTRAINT FK_415 FOREIGN KEY ( registration_id ) REFERENCES registration ( &quot;id&quot; ),
+ CONSTRAINT FK_418 FOREIGN KEY ( treatment_id ) REFERENCES treatment ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_417 ON registration_treatment
+(
+ registration_id
+);
+
+CREATE INDEX fkIdx_420 ON registration_treatment
+(
+ treatment_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** patient_treatment
+
+CREATE TABLE patient_treatment
+(
+ patient_id    int NOT NULL,
+ treatment_id  int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_370 FOREIGN KEY ( patient_id ) REFERENCES patient ( &quot;id&quot; ),
+ CONSTRAINT FK_387 FOREIGN KEY ( treatment_id ) REFERENCES treatment ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_372 ON patient_treatment
+(
+ patient_id
+);
+
+CREATE INDEX fkIdx_389 ON patient_treatment
+(
+ treatment_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** patient_registration
+
+CREATE TABLE patient_registration
+(
+ patient_id      int NOT NULL,
+ registration_id int NOT NULL,
+ TBL_LAST_DATE   timestamp NOT NULL,
+ CONSTRAINT FK_407 FOREIGN KEY ( patient_id ) REFERENCES patient ( &quot;id&quot; ),
+ CONSTRAINT FK_410 FOREIGN KEY ( registration_id ) REFERENCES registration ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_409 ON patient_registration
+(
+ patient_id
+);
+
+CREATE INDEX fkIdx_412 ON patient_registration
+(
+ registration_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** patient_invoice
+
+CREATE TABLE patient_invoice
+(
+ patient_id    int NOT NULL,
+ invoice_id    int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_397 FOREIGN KEY ( patient_id ) REFERENCES patient ( &quot;id&quot; ),
+ CONSTRAINT FK_400 FOREIGN KEY ( invoice_id ) REFERENCES invoice ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_399 ON patient_invoice
+(
+ patient_id
+);
+
+CREATE INDEX fkIdx_402 ON patient_invoice
+(
+ invoice_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** patient_insurance
+
+CREATE TABLE patient_insurance
+(
+ patient_id    int NOT NULL,
+ insurance_id  int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_439 FOREIGN KEY ( patient_id ) REFERENCES patient ( &quot;id&quot; ),
+ CONSTRAINT FK_442 FOREIGN KEY ( insurance_id ) REFERENCES insurance ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_441 ON patient_insurance
+(
+ patient_id
+);
+
+CREATE INDEX fkIdx_444 ON patient_insurance
+(
+ insurance_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** patient_emergency_contact
+
+CREATE TABLE patient_emergency_contact
+(
+ patient_id           int NOT NULL,
+ emergency_contact_id int NOT NULL,
+ TBL_LAST_DATE        timestamp NOT NULL,
+ CONSTRAINT FK_360 FOREIGN KEY ( patient_id ) REFERENCES patient ( &quot;id&quot; ),
+ CONSTRAINT FK_366 FOREIGN KEY ( emergency_contact_id ) REFERENCES emergency_contact ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_362 ON patient_emergency_contact
+(
+ patient_id
+);
+
+CREATE INDEX fkIdx_368 ON patient_emergency_contact
+(
+ emergency_contact_id
+);
+
+
+-- ************************************** in_patient
+
+CREATE TABLE in_patient
+(
+ &quot;id&quot;             int NOT NULL,
+ bed_number     int NOT NULL,
+ &quot;floor&quot;          int NOT NULL,
+ discharge_date date NOT NULL,
+ TBL_LAST_DATE  timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_467 PRIMARY KEY ( &quot;id&quot; ),
+ CONSTRAINT FK_in_patient_171 FOREIGN KEY ( &quot;id&quot; ) REFERENCES patient ( &quot;id&quot; )
+);
+
+
+-- ************************************** in_patient - history
+CREATE TABLE in_patient_history (
+ &quot;id&quot;             int NOT NULL,
+ &quot;timestamp&quot; timestamp NOT NULL DEFAULT clock_timestamp(),
+ bed_number     int NOT NULL,
+ &quot;floor&quot;          int NOT NULL,
+ discharge_date date NOT NULL
+);
+
+CREATE OR REPLACE FUNCTION in_patient_history_trigger()
+  RETURNS trigger AS
+$BODY$
+  DECLARE
+    table_name text;
+  BEGIN
+    table_name := &apos;in_patient_history_&apos; || to_char(CURRENT_DATE, &apos;yyyy_mm&apos;);
+    IF NOT EXISTS (SELECT 1 FROM pg_class WHERE relname = table_name)
+    THEN
+      EXECUTE &apos;CREATE TABLE IF NOT EXISTS &apos; || table_name ||
+              &apos; () INHERITS (in_patient_history);&apos;;
+    END IF;
+    EXECUTE &apos;INSERT INTO &apos; || table_name ||
+            &apos;(id, bed_number, floor, discharge_date) VALUES ($1.id, $1.bed_number, $1.floor, $1.discharge_date);&apos; USING NEW;
+    RETURN NEW;
+  END
+$BODY$
+  LANGUAGE plpgsql;
+
+CREATE TRIGGER in_patient_history_trigger
+AFTER INSERT OR UPDATE ON in_patient FOR EACH ROW
+EXECUTE PROCEDURE in_patient_history_trigger();
+
+
+-- ************************************** out_patient
+
+CREATE TABLE out_patient
+(
+ &quot;id&quot;             int NOT NULL,
+ follow_up_date date NOT NULL,
+ TBL_LAST_DATE  timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_468 PRIMARY KEY ( &quot;id&quot; ),
+ CONSTRAINT FK_out_patient_173 FOREIGN KEY ( &quot;id&quot; ) REFERENCES patient ( &quot;id&quot; )
+);
+
+-- ************************************** out_patient - history
+CREATE TABLE out_patient_history
+(
+ &quot;id&quot;             int NOT NULL,
+  &quot;timestamp&quot; timestamp NOT NULL DEFAULT clock_timestamp(),
+ follow_up_date date NOT NULL
+);
+
+CREATE OR REPLACE FUNCTION out_patient_history_trigger()
+  RETURNS trigger AS
+$BODY$
+  DECLARE
+    table_name text;
+  BEGIN
+    table_name := &apos;out_patient_history_&apos; || to_char(CURRENT_DATE, &apos;yyyy_mm&apos;);
+    IF NOT EXISTS (SELECT 1 FROM pg_class WHERE relname = table_name)
+    THEN
+      EXECUTE &apos;CREATE TABLE IF NOT EXISTS &apos; || table_name ||
+              &apos; () INHERITS (out_patient_history);&apos;;
+    END IF;
+    EXECUTE &apos;INSERT INTO &apos; || table_name ||
+            &apos;(id, follow_up_date) VALUES ($1.id, $1.follow_up_date);&apos; USING NEW;
+    RETURN NEW;
+  END
+$BODY$
+  LANGUAGE plpgsql;
+
+CREATE TRIGGER out_patient_history_trigger
+AFTER INSERT OR UPDATE ON out_patient FOR EACH ROW
+EXECUTE PROCEDURE out_patient_history_trigger();
+
+-- ************************************** insurance_invoice
+
+CREATE TABLE insurance_invoice
+(
+ insurance_id  int NOT NULL,
+ invoice_id    int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_447 FOREIGN KEY ( insurance_id ) REFERENCES insurance ( &quot;id&quot; ),
+ CONSTRAINT FK_450 FOREIGN KEY ( invoice_id ) REFERENCES invoice ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_449 ON insurance_invoice
+(
+ insurance_id
+);
+
+CREATE INDEX fkIdx_452 ON insurance_invoice
+(
+ invoice_id
+);
+
+
+
+
+
+
+
+
+
+
+-- ************************************** hospital_department
+
+CREATE TABLE hospital_department
+(
+ hospital_id   int NOT NULL,
+ department_id int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_293 FOREIGN KEY ( hospital_id ) REFERENCES hospital ( &quot;id&quot; ),
+ CONSTRAINT FK_299 FOREIGN KEY ( department_id ) REFERENCES department ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_295 ON hospital_department
+(
+ hospital_id
+);
+
+CREATE INDEX fkIdx_301 ON hospital_department
+(
+ department_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** fulltime_doctor
+
+CREATE TABLE fulltime_doctor
+(
+ name          varchar NOT NULL,
+ hire_date     date NOT NULL,
+ annual_pay    int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ &quot;id&quot;            int NOT NULL,
+ CONSTRAINT PK_465 PRIMARY KEY ( &quot;id&quot; ),
+ CONSTRAINT FK_fulltime_doctor_165 FOREIGN KEY ( &quot;id&quot; ) REFERENCES doctor ( &quot;id&quot; )
+);
+
+
+-- ************************************** fulltime_doctor - history
+CREATE TABLE fulltime_doctor_history
+(
+ name          varchar NOT NULL,
+ &quot;timestamp&quot; timestamp NOT NULL DEFAULT clock_timestamp(),
+ hire_date     date NOT NULL,
+ annual_pay    int NOT NULL,
+ &quot;id&quot;          int primary key
+);
+
+CREATE OR REPLACE FUNCTION fulltime_doctor_history_trigger()
+  RETURNS trigger AS
+$BODY$
+  DECLARE
+    table_name text;
+  BEGIN
+    table_name := &apos;fulltime_doctor_history_&apos; || to_char(CURRENT_DATE, &apos;yyyy_mm&apos;);
+    IF NOT EXISTS (SELECT 1 FROM pg_class WHERE relname = table_name)
+    THEN
+      EXECUTE &apos;CREATE TABLE IF NOT EXISTS &apos; || table_name ||
+              &apos; () INHERITS (fulltime_doctor_history);&apos;;
+    END IF;
+    EXECUTE &apos;INSERT INTO &apos; || table_name ||
+            &apos;(id, name, hire_date, annual_pay) VALUES ($1.id, $1.name, $1.hire_date, $1.annual_pay);&apos; USING NEW;
+    RETURN NEW;
+  END
+$BODY$
+  LANGUAGE plpgsql;
+
+CREATE TRIGGER fulltime_doctor_history_trigger
+AFTER INSERT OR UPDATE ON fulltime_doctor FOR EACH ROW
+EXECUTE PROCEDURE fulltime_doctor_history_trigger();
+
+
+
+
+
+
+-- ************************************** doctor_patient
+
+CREATE TABLE doctor_patient
+(
+ doctor_id     int NOT NULL,
+ patient_id    int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_332 FOREIGN KEY ( doctor_id ) REFERENCES doctor ( &quot;id&quot; ),
+ CONSTRAINT FK_335 FOREIGN KEY ( patient_id ) REFERENCES patient ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_334 ON doctor_patient
+(
+ doctor_id
+);
+
+CREATE INDEX fkIdx_337 ON doctor_patient
+(
+ patient_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** doctor_disease
+
+CREATE TABLE doctor_disease
+(
+ doctor_id     int NOT NULL,
+ disease_id    int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_243 FOREIGN KEY ( doctor_id ) REFERENCES doctor ( &quot;id&quot; ),
+ CONSTRAINT FK_246 FOREIGN KEY ( disease_id ) REFERENCES disease ( icd )
+);
+
+CREATE INDEX fkIdx_245 ON doctor_disease
+(
+ doctor_id
+);
+
+CREATE INDEX fkIdx_249 ON doctor_disease
+(
+ disease_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** department_patient
+
+CREATE TABLE department_patient
+(
+ department_id int NOT NULL,
+ patient_id    int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_315 FOREIGN KEY ( department_id ) REFERENCES department ( &quot;id&quot; ),
+ CONSTRAINT FK_319 FOREIGN KEY ( patient_id ) REFERENCES patient ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_317 ON department_patient
+(
+ department_id
+);
+
+CREATE INDEX fkIdx_321 ON department_patient
+(
+ patient_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** department_doctor
+
+CREATE TABLE department_doctor
+(
+ doctor_id     int NOT NULL,
+ department_id int NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL,
+ CONSTRAINT FK_339 FOREIGN KEY ( doctor_id ) REFERENCES doctor ( &quot;id&quot; ),
+ CONSTRAINT FK_342 FOREIGN KEY ( department_id ) REFERENCES department ( &quot;id&quot; )
+);
+
+CREATE INDEX fkIdx_341 ON department_doctor
+(
+ doctor_id
+);
+
+CREATE INDEX fkIdx_344 ON department_doctor
+(
+ department_id
+);
+
+
+
+
+
+
+
+
+-- ************************************** consulting_doctor
+
+CREATE TABLE consulting_doctor
+(
+ name                varchar NOT NULL,
+ contract_date       date NOT NULL,
+ contract_phone      varchar NOT NULL,
+ weekly_pay          int NOT NULL,
+ min_weekly_hours    int NOT NULL,
+ overtime_hourly_pay int NOT NULL,
+ TBL_LAST_DATE       timestamp NOT NULL DEFAULT current_timestamp,
+ &quot;id&quot;                  int NOT NULL,
+ CONSTRAINT PK_466 PRIMARY KEY ( &quot;id&quot; ),
+ CONSTRAINT FK_consulting_doctor_167 FOREIGN KEY ( &quot;id&quot; ) REFERENCES doctor ( &quot;id&quot; )
+);
+
+
+
+
+-- ************************************** consulting_doctor - history
+CREATE TABLE consulting_doctor_history
+(
+ name                varchar NOT NULL,
+ &quot;timestamp&quot; timestamp NOT NULL DEFAULT clock_timestamp(),
+ contract_date       date NOT NULL,
+ contract_phone      varchar NOT NULL,
+ weekly_pay          int NOT NULL,
+ min_weekly_hours    int NOT NULL,
+ overtime_hourly_pay int NOT NULL,
+ &quot;id&quot;                  int primary key
+);
+
+CREATE OR REPLACE FUNCTION consulting_doctor_history_trigger()
+  RETURNS trigger AS
+$BODY$
+  DECLARE
+    table_name text;
+  BEGIN
+    table_name := &apos;consulting_doctor_history_&apos; || to_char(CURRENT_DATE, &apos;yyyy_mm&apos;);
+    IF NOT EXISTS (SELECT 1 FROM pg_class WHERE relname = table_name)
+    THEN
+      EXECUTE &apos;CREATE TABLE IF NOT EXISTS &apos; || table_name ||
+              &apos; () INHERITS (consulting_doctor_history);&apos;;
+    END IF;
+    EXECUTE &apos;INSERT INTO &apos; || table_name ||
+            &apos;(id, name, contract_date, contract_phone, weekly_pay, min_weekly_hours, overtime_hourly_pay) VALUES ($1.id, $1.name, $1.contract_date, $1.contract_phone, $1.weekly_pay, $1.min_weekly_hours, $1.overtime_hourly_pay);&apos; USING NEW;
+    RETURN NEW;
+  END
+$BODY$
+  LANGUAGE plpgsql;
+
+CREATE TRIGGER consulting_doctor_history_trigger
+AFTER INSERT OR UPDATE ON consulting_doctor FOR EACH ROW
+EXECUTE PROCEDURE consulting_doctor_history_trigger();
+
+
+
+-- ************************************** surgery_treatment
+
+CREATE TABLE surgery_treatment
+(
+ &quot;id&quot;            int NOT NULL,
+ surgery       varchar NOT NULL,
+ description   varchar NOT NULL,
+ &quot;date&quot;          date NOT NULL,
+ &quot;result&quot;        varchar NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_471 PRIMARY KEY ( &quot;id&quot; ),
+ CONSTRAINT FK_surgery_treatment_187 FOREIGN KEY ( &quot;id&quot; ) REFERENCES treatment ( &quot;id&quot; )
+);
+
+
+
+
+
+
+
+
+-- ************************************** laboratory_treatment
+
+CREATE TABLE laboratory_treatment
+(
+ laboratory    varchar NOT NULL,
+ test_type     varchar NOT NULL,
+ test_date     date NOT NULL,
+ test_result   varchar NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ &quot;id&quot;            int NOT NULL,
+ CONSTRAINT PK_469 PRIMARY KEY ( &quot;id&quot; ),
+ CONSTRAINT FK_laboratory_treatment_183 FOREIGN KEY ( &quot;id&quot; ) REFERENCES treatment ( &quot;id&quot; ),
+ PARTITION BY RANGE(test_date)
+);
+
+
+
+
+
+
+
+
+-- ************************************** drug_treatment
+
+CREATE TABLE drug_treatment
+(
+ &quot;id&quot;            int NOT NULL,
+ drug          varchar NOT NULL,
+ dose          varchar NOT NULL,
+ TBL_LAST_DATE timestamp NOT NULL DEFAULT current_timestamp,
+ CONSTRAINT PK_470 PRIMARY KEY ( &quot;id&quot; ),
+ CONSTRAINT FK_drug_treatment_185 FOREIGN KEY ( &quot;id&quot; ) REFERENCES treatment ( &quot;id&quot; )
+);
+
+-- ************************************** triggers (30)
+CREATE OR REPLACE FUNCTION update_TBL_LAST_DATE_column() 
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.TBL_LAST_DATE = now();
+    RETURN NEW; 
+END;
+$$ language &apos;plpgsql&apos;;
+
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON hospital FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON department FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON doctor FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON fulltime_doctor FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON consulting_doctor FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON patient FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON emergency_contact FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON in_patient FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON out_patient FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON registration FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON disease FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON treatment FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON laboratory_treatment FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON drug_treatment FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON surgery_treatment FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON invoice FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON department_doctor FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON department_patient FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON doctor_disease FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON doctor_patient FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON hospital_department FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON insurance FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON insurance_invoice FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON patient_emergency_contact FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON patient_insurance FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON patient_invoice FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON patient_registration FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON patient_treatment FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();
+CREATE TRIGGER update_TBL_LAST_DATE_modtime BEFORE UPDATE ON registration_treatment FOR EACH ROW EXECUTE PROCEDURE update_TBL_LAST_DATE_column();</source>
+</FunctionOracle>

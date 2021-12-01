@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="sql_dbm_ddl_Domains">
+<domains>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="2FF19F11-F569-5D43-685D-4B0BA5E55E07">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:22:51 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>sql_dbm_ddl_Domains</fileName>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_0" id="3B05C153-146B-DA77-A57C-082BE06BBDD7">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:22:51 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>sql_dbm_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_4000" id="9D0BC5C1-3DB9-4F83-BFD9-835937038056">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:28:06 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>0</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>4000</dataTypeSize>
+<fileName>sql_dbm_ddl_Domains</fileName>
+<logicalDatatype>LOGDT024</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Timestamp_6_0_0" id="B7A4E233-0969-4813-FC8E-68D82B2AD85E">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:22:51 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>6</dataTypePrecision>
+<fileName>sql_dbm_ddl_Domains</fileName>
+<logicalDatatype>LOGDT015</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="NUMERIC_10_0_0" id="C2F10065-A38C-BF88-85D6-FDFED30F5BD1">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:28:06 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<dataTypeSize>0</dataTypeSize>
+<fileName>sql_dbm_ddl_Domains</fileName>
+<logicalDatatype>LOGDT019</logicalDatatype>
+</Domain>
+<Domain class="oracle.dbtools.crest.model.design.Domain" name="Integer_0_0_0" id="CBF9576A-D6BC-9F8F-AA80-854B0F972A8C">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:22:51 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<avTSortOrder>0</avTSortOrder>
+<fileName>sql_dbm_ddl_Domains</fileName>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Domain>
+</domains>
+</DomainFile>

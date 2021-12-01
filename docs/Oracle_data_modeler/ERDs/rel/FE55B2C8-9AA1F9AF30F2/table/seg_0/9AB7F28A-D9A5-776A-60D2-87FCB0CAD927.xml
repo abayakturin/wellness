@@ -1,0 +1,400 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9AB7F28A-D9A5-776A-60D2-87FCB0CAD927" name="patient">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>3F4786B4-4340-9D4B-334B-33F99831C695</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="name" id="B0D798C1-894B-E4CF-C87D-7933230EF61B">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>8AD3276D-BCEC-DCBC-6C38-B01234556AB7</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="treatment_id" id="D37D8EE2-594E-361D-C403-F5A9F3976B21">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>E01190B9-6981-9CBE-2048-2E2E6B9E2177</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FC2B3478-77E2-9643-F8AB-21E66F20EB35" referredColumn="854C14ED-C000-C655-017F-D2676D034758"/>
+</associations>
+</Column>
+<Column name="invoice_id" id="B461DAC7-F46F-F3FD-352B-8BA3A1AFDB1C">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>4D90112F-54E6-1C14-F39F-BD48822F4A0C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0D958456-338B-A233-D44A-5A44121E5FDF" referredColumn="87B56B65-F852-0329-B2B1-40B2DFB6BBC1"/>
+</associations>
+</Column>
+<Column name="address" id="E5F205B1-D5DD-5E3D-32C3-8DF6ED3B70D7">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>99C2DB0B-44A3-99C7-7242-B9354B0B38F1</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone" id="72D90A8A-DA9B-ACDA-83A7-4A3A6394432B">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>1848FFE4-7507-B3EA-85FE-6A142174BE22</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="birth_date" id="67A6CFA3-E2EF-5980-63B2-24E7F099528C">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>F78F7FFF-9997-D504-878B-F6274AE23FE4</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>2FF19F11-F569-5D43-685D-4B0BA5E55E07</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="race" id="B1108413-1B00-2C41-4C60-3A32202E9466">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>E33AFECA-433F-3390-2BEB-F8025B9CA33D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="martial_status" id="45C1271F-D04B-ACB7-9E47-6A88F9B40211">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>A8975725-9F9C-029A-A2E4-5BAAB19AFAFC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" id="399A9043-A979-4C1C-22F6-ED9FFB64DFDB">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>D43EDDF6-371A-B80D-08CB-C9C92605EE41</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="blood_group" id="266E010A-289E-9AE1-4426-7D2767EF647D">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>3AD01FE9-ECA0-D737-1A9D-010A88D197A9</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bed_number" id="D5E23A2C-60B0-0914-4F37-F495607B8F92">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>4FD753EC-3240-3651-372D-95C0EDA3C404</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="floor" id="A194FA97-FD12-3D8B-1398-39356962ED70">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<nameHasQuotes>true</nameHasQuotes>
+<importedID>CA613FB5-DC3E-077F-9095-87FF414E5C06</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="discharge_date" id="6DE9E78F-2C85-C93A-390D-B41DA2DC2331">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>FA057354-4D5A-3411-27B0-55DDFE9D728D</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>2FF19F11-F569-5D43-685D-4B0BA5E55E07</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="follow_up_date" id="B79BB132-8FF6-B392-5F85-7D6D7EEB4E7F">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>6FD56EF3-6161-E050-F637-6CE21BB80F34</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>2FF19F11-F569-5D43-685D-4B0BA5E55E07</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="type" id="0C4C73D4-98EB-F852-77EC-CC23E960663E">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>C7450BD7-A19E-24DC-9197-0801B28F6652</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="treatment_registration_date" id="45CADBC1-9DC0-0659-472B-0D60987B5FFB">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>D2A08BEB-1CB6-187A-888C-0398477C1887</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>2FF19F11-F569-5D43-685D-4B0BA5E55E07</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="emergency_name" id="3D8C4222-1A7F-4669-9869-60DA2A30578A">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>4A8FF266-9E7E-7493-4703-61849C065A34</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="emergency_address" id="A1F44337-16B7-07E3-5CBE-6BF2761282AB">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>079378BB-C33D-3E2D-229F-693E1014E255</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="emergency_phone" id="96C2B2AE-5F8C-FECC-1B7B-A2377E3A6836">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>BFD6F02D-34F4-5BBD-57DE-C28FD2D78B26</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="emergency_relationship" id="086E85E1-F3F8-69F0-5F83-4E41B0ACC690">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>FE2496C8-5617-983E-71D3-EF4FFB2CA125</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>C0965584-5314-BB9C-392C-65C19C0D12E6</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="emergency_id" id="23B944DA-FB61-9BBD-20B4-9106CA5C101B">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>A38FF394-9C6A-C8A5-6080-7327084BE564</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="hospital_id" id="A81B03CE-856B-619D-F5BE-6B7DE11D704E">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>336D06A9-2AFB-8B8E-D4CB-5265DF9C023F</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="586B1B4B-AF1A-9EDD-833F-C1ADADDF64DC" referredColumn="2C124E04-D592-3BA7-17B0-8C490CFD10CD"/>
+</associations>
+</Column>
+<Column name="department_id" id="E1221184-D2BA-537D-5A9B-D8215262D377">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>C316A038-4600-2741-C029-0F5B7998427D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="586B1B4B-AF1A-9EDD-833F-C1ADADDF64DC" referredColumn="7CC63DA2-B5F4-4BC7-98F6-1641A21C0C90"/>
+</associations>
+</Column>
+<Column name="patient_id" id="0B93D2E8-8877-3AB1-DDE6-942E33CC8EFA">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>448F385C-EAFB-28E3-F689-03D6272E9BD7</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>C2F10065-A38C-BF88-85D6-FDFED30F5BD1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4479E8B4-EE0D-C17F-8BD2-F20E3221AC80" name="PK_39">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>BEAAD7E9-44C6-FC88-F086-24237BCD98E6</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0B93D2E8-8877-3AB1-DDE6-942E33CC8EFA"/>
+<colUsage columnID="67A6CFA3-E2EF-5980-63B2-24E7F099528C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BFE08334-7EFB-6A08-D9B5-65D878735AB6" name="FK_137">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>0AA5B954-21FE-2ADA-B26A-282B3A17E736</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D37D8EE2-594E-361D-C403-F5A9F3976B21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A8188B06-0491-773E-BE4C-CD252599B26E" name="FK_143">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>083E5785-EDB8-249C-6666-E1C55D0FF613</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B461DAC7-F46F-F3FD-352B-8BA3A1AFDB1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5B436006-1FEF-F145-44AC-09875059C68E" name="FK_149">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>4BCD916A-3956-7412-C27B-432DE1C0E6AE</importedID>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A81B03CE-856B-619D-F5BE-6B7DE11D704E"/>
+<colUsage columnID="E1221184-D2BA-537D-5A9B-D8215262D377"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="788D4E80-B26D-3FD1-94FF-4243272C5FD1" name="FK_135">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D37D8EE2-594E-361D-C403-F5A9F3976B21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="934D0170-8F97-8C45-F9E0-09B5351D4916" name="FK_140">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B461DAC7-F46F-F3FD-352B-8BA3A1AFDB1C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D500E8B5-3A29-C222-3947-BD804F2088EC" name="FK_146">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A81B03CE-856B-619D-F5BE-6B7DE11D704E"/>
+<colUsage columnID="E1221184-D2BA-537D-5A9B-D8215262D377"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

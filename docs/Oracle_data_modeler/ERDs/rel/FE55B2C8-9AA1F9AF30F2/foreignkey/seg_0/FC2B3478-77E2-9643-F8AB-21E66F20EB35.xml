@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="FC2B3478-77E2-9643-F8AB-21E66F20EB35" containerWithKeyObject="9AB7F28A-D9A5-776A-60D2-87FCB0CAD927" localFKIndex="788D4E80-B26D-3FD1-94FF-4243272C5FD1" name="FK_135">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>392E4298-2969-2889-302B-677C53248C5F</importedID>
+<referredTableLongName>treatment</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>3391329C-B143-9007-3F93-AFD85E441844</referredTableID>
+<keyObject>4D4265D0-5BF6-FB43-185D-1887782135E0</keyObject>
+<referredKeyID>4D4265D0-5BF6-FB43-185D-1887782135E0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>treatment_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

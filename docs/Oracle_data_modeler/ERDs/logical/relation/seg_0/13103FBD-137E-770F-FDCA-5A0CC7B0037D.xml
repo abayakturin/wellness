@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_146" directorySegmentName="seg_0" id="13103FBD-137E-770F-FDCA-5A0CC7B0037D">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:49:27 UTC</createdTime>
+<generatorID>586B1B4B-AF1A-9EDD-833F-C1ADADDF64DC</generatorID>
+<ownerDesignName>ERDs</ownerDesignName>
+<engineerTo>
+<item key="FE55B2C8-E573-71F4-9A76-9AA1F9AF30F2" value="true"/>
+</engineerTo>
+<sourcePk>54BECA3A-B3B3-8106-8949-A0893B4939E8</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A3603462-8D63-913E-30C6-A12FE24196A3</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5AA05F8E-5177-42E5-FBFB-D0395BE66952</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

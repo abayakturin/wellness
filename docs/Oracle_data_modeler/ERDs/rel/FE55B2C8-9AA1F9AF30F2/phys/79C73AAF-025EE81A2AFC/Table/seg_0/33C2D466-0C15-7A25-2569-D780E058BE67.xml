@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="hospital" directorySegmentName="seg_0" id="33C2D466-0C15-7A25-2569-D780E058BE67">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="department_name" id="037F0591-6007-00B3-6389-D0D981395CB9">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="address" id="128BCEB4-16C6-5EA8-734A-1A2BDBAA0C00">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="hospital_id" id="2C124E04-D592-3BA7-17B0-8C490CFD10CD">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="emergency_phone" id="3F045EFA-188A-1F32-2A86-CE7A96F62F36">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="department_location" id="476D5D1B-5523-BF32-92B2-358FE6C5CB85">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="department_id" id="7CC63DA2-B5F4-4BC7-98F6-1641A21C0C90">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="admin_phone" id="868DD70B-A2B7-51C8-7BAD-A76DE0090A32">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="name" id="941352E2-924F-21B5-DF72-D7F682E53F58">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="registration_phone" id="E7904CC8-1CB6-5064-ED24-022C3D574B38">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="specialty" id="FF96CFEC-E813-C782-58A9-0911441AEE5B">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="PK_9" id="912C6D7A-B248-0459-E49D-6DF112545669">
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

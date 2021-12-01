@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0D958456-338B-A233-D44A-5A44121E5FDF" containerWithKeyObject="9AB7F28A-D9A5-776A-60D2-87FCB0CAD927" localFKIndex="934D0170-8F97-8C45-F9E0-09B5351D4916" name="FK_140">
+<sourceDDLFile>wellness_dw_oracle.sql</sourceDDLFile>
+<createdBy>abaya</createdBy>
+<createdTime>2021-11-30 20:47:49 UTC</createdTime>
+<ownerDesignName>ERDs</ownerDesignName>
+<importedID>0E0BBC2D-6B37-D337-782D-E838F6EEBD3F</importedID>
+<referredTableLongName>insurance_invoice</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>1A9F14A9-154E-A9C7-E27C-2EC6C48E97C1</referredTableID>
+<keyObject>7C400EA1-DB0F-F889-1E2E-CDBAE54A9B6C</keyObject>
+<referredKeyID>7C400EA1-DB0F-F889-1E2E-CDBAE54A9B6C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>invoice_id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
